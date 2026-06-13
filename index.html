@@ -54,16 +54,6 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
-  }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
   button { font: inherit; }
@@ -112,9 +102,39 @@
     font-size: 0.84rem;
     font-weight: 600;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
   }
+  .button::before {
+    content: "";
+    width: 0.35rem;
+    height: 0.35rem;
+    position: absolute;
+    top: 0.45rem;
+    right: 0.65rem;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transform: scale(0) translate3d(-0.4rem, 0.4rem, 0);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+  .button::after {
+    content: "";
+    width: 35%;
+    height: 180%;
+    position: absolute;
+    top: -40%;
+    left: -55%;
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.14);
+    transform: rotate(18deg) translate3d(0, 0, 0);
+    transition: transform 500ms ease;
+  }
   .button:hover { transform: translateY(-2px); background: var(--rust-deep); }
+  .button:hover::before { opacity: 0.65; transform: scale(1) translate3d(0, 0, 0); }
+  .button:hover::after { transform: rotate(18deg) translate3d(460%, 0, 0); }
   .button.light { background: var(--white); color: var(--black); }
   .button.light:hover { background: var(--stone); }
   .button.ghost { border-color: var(--border); background: rgba(255, 255, 255, 0.35); color: var(--black); }
@@ -164,6 +184,10 @@
   .nav-links a { color: var(--charcoal); font-size: 0.8rem; font-weight: 500; text-decoration: none; }
   .nav-links a:hover { color: var(--rust-deep); }
   .nav .button { min-height: 3.1rem; padding-inline: 1rem; }
+  .nav .button { animation: nav-breathe 4.8s ease-in-out infinite; }
+  @keyframes nav-breathe {
+    50% { transform: translate3d(0, -1px, 0) scale(1.018); }
+  }
 
   .hero {
     min-height: 100svh;
@@ -237,7 +261,8 @@
     object-fit: cover;
     object-position: 50% 38%;
     box-shadow: 0 20px 48px rgba(28, 27, 25, 0.18);
-    transform: rotate(1.5deg);
+    transform: translate3d(0, var(--portrait-shift, 0px), 0) rotate(1.5deg);
+    transition: transform 220ms ease-out;
   }
   .hero h1 em { color: var(--rust); font-family: var(--editorial); font-weight: 400; }
   .hero-copy { max-width: 37rem; margin: var(--s5) 0 0; color: var(--charcoal); font-size: clamp(1rem, 2vw, 1.25rem); }
@@ -252,6 +277,13 @@
     flex-direction: column;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.42);
+    animation: card-float 7s ease-in-out infinite;
+  }
+  .micro-card:nth-child(2) { animation-delay: -2.2s; }
+  .micro-card:nth-child(3) { animation-delay: -4.4s; }
+  .micro-card:hover { animation-play-state: paused; transform: translateY(-4px); }
+  @keyframes card-float {
+    50% { transform: translate3d(0, -4px, 0); }
   }
   .micro-label { color: var(--grey-blue); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
   .micro-card strong { max-width: 16rem; font-size: 0.95rem; font-weight: 500; line-height: 1.25; letter-spacing: -0.03em; }
@@ -420,8 +452,290 @@
   .contact-bottom { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s4); margin-top: var(--s5); }
   .contact-bottom p { max-width: 34rem; margin: 0; color: var(--stone); }
 
-  .footer { padding-block: var(--s4); background: var(--stone); }
+  .footer { padding: var(--s4) 0 10rem; background: var(--stone); }
   .footer-inner { padding-top: var(--s4); border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--s3); color: var(--grey-blue); font-size: 0.72rem; }
+
+  .reassurance { background: var(--bone); }
+  .reassurance-card {
+    padding: var(--s5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    display: grid;
+    gap: var(--s5);
+    background: var(--white);
+    box-shadow: 0 18px 55px rgba(28, 27, 25, 0.07);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+  .reassurance-card:hover { transform: translateY(-4px); box-shadow: 0 24px 64px rgba(28, 27, 25, 0.1); }
+  .reassurance-mark {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--rust);
+    color: var(--white);
+  }
+  .reassurance-mark svg { width: 1.35rem; height: 1.35rem; }
+  .reassurance h2 { max-width: 54rem; margin: 0; font-size: clamp(2.1rem, 5vw, 4.6rem); font-weight: 500; line-height: 1; letter-spacing: -0.06em; }
+  .reassurance p { max-width: 42rem; margin: 0; color: var(--charcoal); }
+
+  .faq { background: var(--white); }
+  .faq-grid { display: grid; gap: var(--s5); }
+  .faq-list { border-top: 1px solid var(--border); }
+  .faq details { border-bottom: 1px solid var(--border); }
+  .faq summary {
+    padding: 1.35rem 2.5rem 1.35rem 0;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    top: 1.2rem;
+    right: 0;
+    color: var(--rust);
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: transform 180ms ease;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { max-width: 44rem; margin: -0.25rem 0 1.4rem; color: var(--charcoal); }
+
+  .scroll-progress {
+    width: 100%;
+    height: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    pointer-events: none;
+    background: var(--rust);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .sticky-conversation {
+    position: fixed;
+    z-index: 45;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    background: rgba(28, 27, 25, 0.94);
+    color: var(--white);
+    box-shadow: 0 16px 50px rgba(28, 27, 25, 0.2);
+  }
+  .sticky-conversation p { margin: 0; font-size: 0.8rem; line-height: 1.3; }
+  .sticky-conversation small { display: block; margin-top: 0.2rem; color: var(--sand); font-size: 0.65rem; letter-spacing: 0.03em; }
+  .sticky-conversation .button { flex: 0 0 auto; background: var(--white); color: var(--black); }
+
+  .idea-prompt { display: none; }
+  .js .idea-prompt {
+    width: min(calc(100% - 1rem), 24rem);
+    position: fixed;
+    z-index: 60;
+    right: 0.5rem;
+    bottom: 9.8rem;
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: block;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, 1.25rem, 0);
+    transition: opacity 320ms ease, transform 320ms ease;
+  }
+  .js .idea-prompt.is-visible { opacity: 1; pointer-events: auto; transform: translate3d(0, 0, 0); }
+  .idea-prompt h2 { margin: 0 2rem 0.45rem 0; font-size: 1.35rem; line-height: 1; letter-spacing: -0.045em; }
+  .idea-prompt p { margin: 0 0 1rem; color: var(--charcoal); font-size: 0.8rem; }
+  .idea-prompt .button { width: 100%; }
+  .prompt-close {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--charcoal);
+    cursor: pointer;
+  }
+
+  body.form-open { overflow: hidden; }
+  .build-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    padding: 0.5rem;
+    display: none;
+    place-items: center;
+    background: rgba(28, 27, 25, 0.72);
+  }
+  .build-modal[aria-hidden="false"] { display: grid; }
+  .build-modal-shell {
+    width: min(100%, 68rem);
+    max-width: calc(100vw - 1rem);
+    min-width: 0;
+    height: min(100%, 48rem);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.46);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background:
+      radial-gradient(circle at 95% 5%, rgba(184, 107, 74, 0.22), transparent 27%),
+      radial-gradient(circle at 5% 95%, rgba(110, 120, 130, 0.18), transparent 30%),
+      var(--bone);
+    box-shadow: 0 32px 100px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0) scale(0.985);
+    transition: opacity 240ms ease, transform 240ms ease;
+  }
+  .build-modal.is-visible .build-modal-shell { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  .form-topbar {
+    padding: 0.85rem 0.85rem 0.7rem 1.15rem;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--s3);
+    background: rgba(251, 250, 247, 0.72);
+  }
+  .form-progress-copy { display: flex; justify-content: space-between; gap: var(--s3); color: var(--grey-blue); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; }
+  .form-progress-track { height: 3px; margin-top: 0.55rem; overflow: hidden; border-radius: 99px; background: var(--stone); }
+  .form-progress-bar { width: 100%; height: 100%; border-radius: inherit; background: var(--rust); transform: scaleX(0.125); transform-origin: left center; transition: transform 320ms ease; }
+  .form-close {
+    min-width: 5.5rem;
+    min-height: 2.7rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    font-size: 0.76rem;
+    font-weight: 600;
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+  .form-close:hover { transform: translateY(-2px); background: var(--stone); }
+  .form-close span { font-size: 1.1rem; line-height: 1; }
+  .build-form { min-width: 0; min-height: 0; display: grid; }
+  .form-step {
+    min-width: 0;
+    min-height: 0;
+    padding: var(--s5) var(--s4);
+    overflow-y: auto;
+    display: none;
+    align-content: center;
+  }
+  .form-step.is-active { display: grid; animation: step-enter 320ms ease both; }
+  .form-step.is-leaving { display: grid; animation: step-leave 220ms ease both; pointer-events: none; }
+  @keyframes step-enter {
+    from { opacity: 0; transform: translate3d(1rem, 0, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes step-leave {
+    from { opacity: 1; transform: translate3d(0, 0, 0); }
+    to { opacity: 0; transform: translate3d(-0.75rem, 0, 0); }
+  }
+  .step-inner { width: min(100%, 48rem); min-width: 0; margin: auto; }
+  .step-kicker { margin: 0 0 0.7rem; color: var(--rust-deep); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
+  .form-step h2 { max-width: 44rem; margin: 0; overflow-wrap: anywhere; font-size: clamp(2rem, 6vw, 4.2rem); font-weight: 500; line-height: 0.96; letter-spacing: -0.065em; }
+  .form-step h2 em { color: var(--rust); font-family: var(--editorial); font-weight: 400; }
+  .step-help { max-width: 38rem; margin: 0.85rem 0 0; color: var(--charcoal); font-size: 0.88rem; }
+  .choice-grid { margin-top: var(--s5); display: grid; gap: 0.65rem; }
+  .choice {
+    min-height: 3.7rem;
+    position: relative;
+    cursor: pointer;
+  }
+  .choice input { position: absolute; opacity: 0; pointer-events: none; }
+  .choice span {
+    height: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(251, 250, 247, 0.72);
+    font-size: 0.86rem;
+    font-weight: 500;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+  .choice span::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    flex: 0 0 auto;
+    border: 1px solid var(--taupe);
+    border-radius: 50%;
+    background: var(--white);
+    box-shadow: inset 0 0 0 3px var(--white);
+  }
+  .choice:hover span { transform: translateY(-2px); border-color: rgba(184, 107, 74, 0.5); }
+  .choice input:focus-visible + span { outline: 2px solid var(--rust); outline-offset: 3px; }
+  .choice input:checked + span { border-color: var(--rust); background: var(--rust-deep); color: var(--white); transform: translateY(-2px); }
+  .choice input:checked + span::before { border-color: var(--white); background: var(--rust); }
+  .choice.checkbox span::before { border-radius: 0.2rem; }
+  .form-field { margin-top: var(--s5); }
+  .form-field label { display: block; margin-bottom: 0.5rem; color: var(--grey-blue); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .form-field textarea, .form-field input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(251, 250, 247, 0.78);
+    color: var(--black);
+    font: inherit;
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+  .form-field textarea { min-height: 10rem; padding: 1rem; resize: vertical; }
+  .form-field input { min-height: 3.6rem; padding: 0 1rem; }
+  .form-field textarea:focus, .form-field input:focus { border-color: var(--rust); outline: 0; transform: translateY(-1px); }
+  .form-field-row { display: grid; gap: var(--s3); }
+  .step-actions { margin-top: var(--s5); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.7rem; }
+  .step-actions .button { min-width: 8rem; cursor: pointer; }
+  .step-actions .button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+  .back-button { border: 0; background: transparent; color: var(--grey-blue); cursor: pointer; font-size: 0.78rem; font-weight: 600; }
+  .selection-count, .choice-hint { color: var(--grey-blue); font-size: 0.72rem; }
+  .form-message { min-height: 1.25rem; margin: 0.7rem 0 0; color: var(--rust-deep); font-size: 0.74rem; font-weight: 500; }
+  .form-complete { text-align: center; }
+  .complete-mark {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto var(--s4);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--rust-deep);
+    color: var(--white);
+    animation: complete-pop 600ms ease both;
+  }
+  .complete-mark svg { width: 2rem; height: 2rem; }
+  @keyframes complete-pop {
+    0% { opacity: 0; transform: scale(0.5) rotate(-12deg); }
+    65% { transform: scale(1.08) rotate(3deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+  }
+  .form-complete p { max-width: 34rem; margin: 1rem auto 0; color: var(--charcoal); }
 
   .js .reveal { opacity: 0; transform: translateY(18px); }
   .js .reveal.is-visible { opacity: 1; transform: translateY(0); transition: opacity 600ms ease, transform 600ms ease; }
@@ -440,6 +754,26 @@
     .contact-card { padding: var(--s7); }
     .contact-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
     .footer-inner { flex-direction: row; justify-content: space-between; }
+    .footer { padding-bottom: 7rem; }
+    .reassurance-card { grid-template-columns: auto 1fr; align-items: start; padding: var(--s6); }
+    .faq-grid { grid-template-columns: 0.75fr 1.25fr; gap: var(--s7); }
+    .sticky-conversation { left: 50%; right: auto; width: min(calc(100% - 2rem), 58rem); flex-direction: row; align-items: center; justify-content: space-between; transform: translateX(-50%); }
+    .sticky-conversation p { font-size: 0.88rem; }
+    .js .idea-prompt { right: 1rem; bottom: 6.8rem; }
+    .build-modal { padding: 1rem; }
+    .form-step { padding: var(--s6); }
+    .choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .choice-grid.outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .form-field-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 41.99rem) {
+    .form-topbar { grid-template-columns: minmax(0, 1fr) auto; padding-left: 0.85rem; }
+    .form-progress-copy { font-size: 0.58rem; }
+    .form-close { min-width: 2.7rem; width: 2.7rem; padding: 0; font-size: 0; }
+    .form-close span { font-size: 1.2rem; }
+    .form-step { padding: var(--s5) var(--s4); }
+    .step-actions .button { min-width: 8rem; }
   }
 
   @media (min-width: 68rem) {
@@ -463,7 +797,7 @@
       bottom: auto;
       object-position: center;
       border-radius: var(--radius-lg);
-      transform: translateY(-50%) rotate(1.5deg);
+      transform: translate3d(0, calc(-50% + var(--portrait-shift, 0px)), 0) rotate(1.5deg);
     }
     .hero-copy, .hero-actions { margin-left: 0; }
     .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -481,6 +815,7 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <div class="nav-wrap">
   <nav class="nav" aria-label="Main navigation">
@@ -488,6 +823,7 @@
     <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
     <a class="button" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Get in touch
@@ -504,7 +840,7 @@
     <div class="container hero-shell">
       <div class="hero-topline">
         <span>Practical AI builder / UK</span>
-        <span class="availability">Available for select builds</span>
+        <span class="availability">Currently taking on 1-2 small builds this month</span>
       </div>
       <div class="hero-main">
         <p class="hero-kicker">Hi, I'm Sam Jordan</p>
@@ -548,7 +884,7 @@
               <p>A mobile app for logging workouts, following a weekly training plan, and tracking bodyweight progress in one place.</p>
               <p>Designed to replace scattered notes, screenshots, and spreadsheets with a cleaner way to stay consistent.</p>
             </div>
-            <a class="project-link" href="mailto:contact@samjordanco.com?subject=Fitness%20app%20project%20enquiry">Build something similar
+            <a class="project-link" data-build-form data-build-type="Web app" href="mailto:contact@samjordanco.com?subject=Fitness%20app%20project%20enquiry">Build something similar
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -568,7 +904,7 @@
               <p>A custom web app for running a private World Cup sweepstake with 100+ players.</p>
               <p>Tracks entries, teams, match results, points, rankings, and live standings so the whole game is easier to manage and follow.</p>
             </div>
-            <a class="project-link" href="mailto:contact@samjordanco.com?subject=Sweepstake%20web%20app%20project%20enquiry">Build something similar
+            <a class="project-link" data-build-form data-build-type="Web app" href="mailto:contact@samjordanco.com?subject=Sweepstake%20web%20app%20project%20enquiry">Build something similar
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -598,11 +934,26 @@
               <p>A backend AI tool that turns rough ideas and messy notes into structured short-form video scripts.</p>
               <p>Helps create clearer hooks, stronger talking points, and more usable scripts without starting from a blank page.</p>
             </div>
-            <a class="project-link" href="mailto:contact@samjordanco.com?subject=AI%20content%20tool%20project%20enquiry">Build something similar
+            <a class="project-link" data-build-form data-build-type="AI tool" href="mailto:contact@samjordanco.com?subject=AI%20content%20tool%20project%20enquiry">Build something similar
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reassurance" aria-labelledby="reassurance-title">
+    <div class="container">
+      <div class="reassurance-card reveal">
+        <div class="reassurance-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M7 12.5l3 3 7-7M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <p class="section-label">A useful first step</p>
+          <h2 id="reassurance-title">Not sure what you need yet?</h2>
+          <p>We'll start by mapping the simplest useful version before building anything. That means getting clear on the problem, the people using it, and the smallest build worth testing.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -622,6 +973,38 @@
           <span class="skill">AI tools</span><span class="skill">Web apps</span><span class="skill">Automations</span><span class="skill">API integrations</span><span class="skill">MVP prototypes</span><span class="skill">Internal dashboards</span>
         </div>
         <blockquote class="quote">Build useful tools that solve real problems.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="container faq-grid">
+      <header class="reveal">
+        <p class="section-label">Before we start</p>
+        <h2 class="section-title">Useful answers, <em>plainly put.</em></h2>
+        <p class="section-lede">You do not need a polished brief or technical plan. A real problem and a rough idea are enough to begin.</p>
+      </header>
+      <div class="faq-list reveal">
+        <details>
+          <summary>What if I only have a rough idea?</summary>
+          <p>That is completely fine. Send over what is frustrating, slow, or repetitive. I will help shape it into a clear first version before anything gets built.</p>
+        </details>
+        <details>
+          <summary>Do I need to know the tech?</summary>
+          <p>No. We will talk about the problem, the outcome, and how people need to use the tool. I will handle the technical choices and explain the important trade-offs plainly.</p>
+        </details>
+        <details>
+          <summary>What can you build?</summary>
+          <p>Focused web apps, practical AI tools, internal dashboards, workflow automations, API integrations, and testable MVPs designed around a specific job.</p>
+        </details>
+        <details>
+          <summary>How does the process work?</summary>
+          <p>We map the simplest useful version, agree the scope, build in clear stages, and test it against the real workflow. You see progress early and can shape it as we go.</p>
+        </details>
+        <details>
+          <summary>What if the idea is too complex?</summary>
+          <p>I will say so early. We can reduce it to a useful first step, identify what needs specialist support, or decide that it is not worth building yet.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -650,6 +1033,177 @@
   </div>
 </footer>
 
+<aside class="idea-prompt" aria-labelledby="idea-prompt-title">
+  <button class="prompt-close" type="button" aria-label="Dismiss message">&times;</button>
+  <h2 id="idea-prompt-title">Got something similar in mind?</h2>
+  <p>If you've got a messy workflow, repeated task, or tool idea, send it over and I'll tell you if it's buildable.</p>
+  <a class="button" data-build-form href="mailto:contact@samjordanco.com?subject=Tool%20idea%20for%20Sam">Send idea
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</aside>
+
+<aside class="sticky-conversation" aria-label="Start a build conversation">
+  <p>Got an idea, workflow, or repetitive task you want turned into a tool?<small>Currently taking on 1-2 small builds this month</small></p>
+  <a class="button" data-build-form href="mailto:contact@samjordanco.com?subject=Start%20a%20build%20conversation">Start a build conversation
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</aside>
+
+<div class="build-modal" aria-hidden="true">
+  <div class="build-modal-shell" role="dialog" aria-modal="true" aria-labelledby="build-form-title">
+    <div class="form-topbar">
+      <div>
+        <div class="form-progress-copy"><span>Build request</span><span class="form-step-count">Step 1 of 8</span></div>
+        <div class="form-progress-track" aria-hidden="true"><div class="form-progress-bar"></div></div>
+      </div>
+      <button class="form-close" type="button"><span aria-hidden="true">&times;</span> Exit form</button>
+    </div>
+
+    <form class="build-form" action="mailto:contact@samjordanco.com" method="post" enctype="text/plain">
+      <section class="form-step is-active" data-step="1">
+        <div class="step-inner">
+          <p class="step-kicker">Start with the shape of it</p>
+          <h2 id="build-form-title">What do you want to <em>build?</em></h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="build_type" value="AI tool" required><span>AI tool</span></label>
+            <label class="choice"><input type="radio" name="build_type" value="Automation"><span>Automation</span></label>
+            <label class="choice"><input type="radio" name="build_type" value="Web app"><span>Web app</span></label>
+            <label class="choice"><input type="radio" name="build_type" value="Internal dashboard"><span>Internal dashboard</span></label>
+            <label class="choice"><input type="radio" name="build_type" value="MVP / prototype"><span>MVP / prototype</span></label>
+            <label class="choice"><input type="radio" name="build_type" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><span class="choice-hint">Choose one to continue</span><span></span></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="2">
+        <div class="step-inner">
+          <p class="step-kicker">The problem behind the build</p>
+          <h2>What best <em>describes it?</em></h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="description_type" value="I have an idea for a tool" required><span>I have an idea for a tool</span></label>
+            <label class="choice"><input type="radio" name="description_type" value="I have a repetitive task I want to automate"><span>I have a repetitive task I want to automate</span></label>
+            <label class="choice"><input type="radio" name="description_type" value="I have a messy workflow I want to simplify"><span>I have a messy workflow I want to simplify</span></label>
+            <label class="choice"><input type="radio" name="description_type" value="I need something connected together"><span>I need something connected together</span></label>
+            <label class="choice"><input type="radio" name="description_type" value="I want to improve something I already use"><span>I want to improve something I already use</span></label>
+            <label class="choice"><input type="radio" name="description_type" value="I am not sure, I just know the current way is annoying"><span>I am not sure, I just know the current way is annoying</span></label>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="3">
+        <div class="step-inner">
+          <p class="step-kicker">No polished brief needed</p>
+          <h2>Tell me the <em>rough version.</em></h2>
+          <p class="step-help">Describe the idea, task, or workflow in plain English.</p>
+          <div class="form-field">
+            <label for="rough-version">What happens now, and what would you like to be easier?</label>
+            <textarea id="rough-version" name="rough_version" required placeholder="Example: Every week I copy client info from a form into a spreadsheet, write the same welcome email, and manually track who has paid."></textarea>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="4">
+        <div class="step-inner">
+          <p class="step-kicker">Who needs it?</p>
+          <h2>Who is it <em>for?</em></h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="audience" value="Just me" required><span>Just me</span></label>
+            <label class="choice"><input type="radio" name="audience" value="My business"><span>My business</span></label>
+            <label class="choice"><input type="radio" name="audience" value="My clients/customers"><span>My clients/customers</span></label>
+            <label class="choice"><input type="radio" name="audience" value="My team"><span>My team</span></label>
+            <label class="choice"><input type="radio" name="audience" value="A community/group"><span>A community/group</span></label>
+            <label class="choice"><input type="radio" name="audience" value="Public users"><span>Public users</span></label>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="5">
+        <div class="step-inner">
+          <p class="step-kicker">Pick up to three</p>
+          <h2>What would a good version help you <em>do?</em></h2>
+          <div class="choice-grid outcomes">
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Save time"><span>Save time</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Reduce manual admin"><span>Reduce manual admin</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Organise information"><span>Organise information</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Reply faster"><span>Reply faster</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Track progress"><span>Track progress</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Create content"><span>Create content</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Manage clients/customers"><span>Manage clients/customers</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Connect tools together"><span>Connect tools together</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Test an idea"><span>Test an idea</span></label>
+            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Make something look more professional"><span>Make something look more professional</span></label>
+          </div>
+          <p class="selection-count outcome-selection-count">0 of 3 selected</p>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="6">
+        <div class="step-inner">
+          <p class="step-kicker">Useful context</p>
+          <h2>Do you already use any tools for <em>this?</em></h2>
+          <p class="step-help">List anything relevant. It is fine to leave this blank.</p>
+          <div class="form-field">
+            <label for="current-tools">Current tools</label>
+            <textarea id="current-tools" name="current_tools" placeholder="Google Sheets, Notion, Airtable, WhatsApp, Instagram, email, Stripe, Calendly, Zapier, Make, ChatGPT, Claude, existing website, etc."></textarea>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="7">
+        <div class="step-inner">
+          <p class="step-kicker">A realistic pace</p>
+          <h2>How soon do you want to <em>build it?</em></h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="timeline" value="Just exploring" required><span>Just exploring</span></label>
+            <label class="choice"><input type="radio" name="timeline" value="This month"><span>This month</span></label>
+            <label class="choice"><input type="radio" name="timeline" value="As soon as possible"><span>As soon as possible</span></label>
+            <label class="choice"><input type="radio" name="timeline" value="I have a deadline"><span>I have a deadline</span></label>
+            <label class="choice"><input type="radio" name="timeline" value="Not sure"><span>Not sure</span></label>
+          </div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="8">
+        <div class="step-inner">
+          <p class="step-kicker">Nearly there</p>
+          <h2>Where should I send my <em>reply?</em></h2>
+          <div class="form-field-row">
+            <div class="form-field"><label for="request-name">Name</label><input id="request-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="form-field"><label for="request-email">Email</label><input id="request-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="form-field"><label for="request-link">Website / Instagram / business link <span class="editorial">(optional)</span></label><input id="request-link" name="business_link" type="url" inputmode="url" placeholder="https://"></div>
+          <p class="form-message" aria-live="polite"></p>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button submit-request" type="submit">Send build request <span aria-hidden="true">&rarr;</span></button></div>
+        </div>
+      </section>
+
+      <section class="form-step form-complete" data-step="complete">
+        <div class="step-inner">
+          <div class="complete-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m6 12.5 4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="step-kicker">Build request ready</p>
+          <h2>Nice. The messy idea is now a <em>clear starting point.</em></h2>
+          <p>Your email app is opening with the full request ready to send. I will read it properly and let you know what looks buildable.</p>
+          <div class="step-actions"><span></span><button class="button finish-form" type="button">Back to the site</button></div>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
+
 <script>
   const revealElements = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -665,6 +1219,234 @@
   } else {
     revealElements.forEach((element) => element.classList.add('is-visible'));
   }
+
+  const progress = document.querySelector('.scroll-progress');
+  const portrait = document.querySelector('.portrait-inline');
+  let ticking = false;
+
+  const updateMotion = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+    progress.style.transform = `scaleX(${ratio})`;
+
+    if (portrait && window.matchMedia('(min-width: 68rem)').matches) {
+      const shift = Math.max(-10, Math.min(10, window.scrollY * 0.025));
+      portrait.style.setProperty('--portrait-shift', `${shift}px`);
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateMotion);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateMotion();
+
+  const ideaPrompt = document.querySelector('.idea-prompt');
+  const projectSection = document.querySelector('#projects');
+  const promptClose = document.querySelector('.prompt-close');
+  let promptDismissed = false;
+
+  if ('IntersectionObserver' in window && ideaPrompt && projectSection) {
+    const promptObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0 && !promptDismissed) {
+          ideaPrompt.classList.add('is-visible');
+          promptObserver.disconnect();
+        }
+      });
+    }, { threshold: 0 });
+    promptObserver.observe(projectSection);
+  }
+
+  promptClose?.addEventListener('click', () => {
+    promptDismissed = true;
+    ideaPrompt.classList.remove('is-visible');
+  });
+
+  const buildModal = document.querySelector('.build-modal');
+  const buildForm = document.querySelector('.build-form');
+  const formSteps = [...document.querySelectorAll('.form-step')];
+  const numberedSteps = formSteps.filter((step) => step.dataset.step !== 'complete');
+  const openFormButtons = document.querySelectorAll('[data-build-form]');
+  const formClose = document.querySelector('.form-close');
+  const finishForm = document.querySelector('.finish-form');
+  const stepCount = document.querySelector('.form-step-count');
+  const formProgress = document.querySelector('.form-progress-bar');
+  const outcomeInputs = [...document.querySelectorAll('input[name="outcomes"]')];
+  const selectionCount = document.querySelector('.outcome-selection-count');
+  let currentStep = 0;
+  let lastFormTrigger = null;
+
+  const showFormStep = (index) => {
+    currentStep = index;
+    formSteps.forEach((step) => step.classList.remove('is-active', 'is-leaving'));
+    const step = index === 'complete' ? formSteps.find((item) => item.dataset.step === 'complete') : numberedSteps[index];
+    step.classList.add('is-active');
+
+    if (index === 'complete') {
+      stepCount.textContent = 'Complete';
+      formProgress.style.transform = 'scaleX(1)';
+    } else {
+      stepCount.textContent = `Step ${index + 1} of ${numberedSteps.length}`;
+      formProgress.style.transform = `scaleX(${(index + 1) / numberedSteps.length})`;
+      window.setTimeout(() => step.querySelector('input, textarea, button')?.focus(), 80);
+    }
+  };
+
+  const resetBuildForm = (suggestedType = '') => {
+    buildForm.reset();
+    outcomeInputs.forEach((input) => { input.disabled = false; });
+    selectionCount.textContent = '0 of 3 selected';
+    numberedSteps.forEach((step) => { step.querySelector('.form-message').textContent = ''; });
+    if (suggestedType) {
+      const matchingType = [...buildForm.querySelectorAll('input[name="build_type"]')].find((input) => input.value === suggestedType);
+      if (matchingType) matchingType.checked = true;
+    }
+    showFormStep(0);
+  };
+
+  const openBuildForm = (trigger) => {
+    lastFormTrigger = trigger;
+    resetBuildForm(trigger.dataset.buildType || '');
+    buildModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('form-open');
+    window.requestAnimationFrame(() => buildModal.classList.add('is-visible'));
+  };
+
+  const closeBuildForm = () => {
+    buildModal.classList.remove('is-visible');
+    document.body.classList.remove('form-open');
+    window.setTimeout(() => {
+      buildModal.setAttribute('aria-hidden', 'true');
+      lastFormTrigger?.focus();
+    }, 240);
+  };
+
+  openFormButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      ideaPrompt?.classList.remove('is-visible');
+      openBuildForm(button);
+    });
+  });
+  if (window.location.hash === '#build-request') {
+    openBuildForm(document.querySelector('.sticky-conversation [data-build-form]'));
+  }
+
+  formClose.addEventListener('click', closeBuildForm);
+  finishForm.addEventListener('click', closeBuildForm);
+  buildModal.addEventListener('click', (event) => {
+    if (event.target === buildModal) closeBuildForm();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && buildModal.getAttribute('aria-hidden') === 'false') closeBuildForm();
+  });
+
+  const validateStep = (step) => {
+    const message = step.querySelector('.form-message');
+    const requiredInputs = [...step.querySelectorAll('[required]')];
+
+    if (step.dataset.step === '5' && !outcomeInputs.some((input) => input.checked)) {
+      message.textContent = 'Choose at least one useful outcome to continue.';
+      return false;
+    }
+
+    const invalid = requiredInputs.find((input) => {
+      if (input.type === 'radio') return !step.querySelector(`input[name="${input.name}"]:checked`);
+      return !input.checkValidity();
+    });
+
+    if (invalid) {
+      message.textContent = invalid.type === 'email' ? 'Add a valid email address so I can reply.' : 'Add an answer here before moving on.';
+      invalid.focus();
+      return false;
+    }
+
+    const optionalUrl = step.querySelector('input[type="url"]');
+    if (optionalUrl?.value && !optionalUrl.checkValidity()) {
+      message.textContent = 'Add the full link, including https://';
+      optionalUrl.focus();
+      return false;
+    }
+
+    message.textContent = '';
+    return true;
+  };
+
+  document.querySelectorAll('.next-step').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (validateStep(numberedSteps[currentStep])) showFormStep(currentStep + 1);
+    });
+  });
+
+  numberedSteps.forEach((step, index) => {
+    const radioInputs = [...step.querySelectorAll('input[type="radio"]')];
+    if (!radioInputs.length) return;
+
+    const advanceFromChoice = () => {
+      if (index !== currentStep || step.classList.contains('is-leaving') || !validateStep(step)) return;
+      step.classList.add('is-leaving');
+      window.setTimeout(() => showFormStep(index + 1), 280);
+    };
+
+    radioInputs.forEach((input) => {
+      input.addEventListener('change', advanceFromChoice);
+      input.addEventListener('click', () => {
+        if (input.checked) advanceFromChoice();
+      });
+    });
+  });
+
+  document.querySelectorAll('.back-button').forEach((button) => {
+    button.addEventListener('click', () => showFormStep(Math.max(0, currentStep - 1)));
+  });
+
+  outcomeInputs.forEach((input) => {
+    input.addEventListener('change', () => {
+      const selected = outcomeInputs.filter((item) => item.checked);
+      outcomeInputs.forEach((item) => { item.disabled = selected.length >= 3 && !item.checked; });
+      selectionCount.textContent = `${selected.length} of 3 selected`;
+    });
+  });
+
+  buildForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!validateStep(numberedSteps[7])) return;
+
+    const data = new FormData(buildForm);
+    const outcomes = data.getAll('outcomes').join(', ');
+    const body = [
+      'Hi Sam,',
+      '',
+      'Here is my build request:',
+      '',
+      `What I want to build: ${data.get('build_type')}`,
+      `What best describes it: ${data.get('description_type')}`,
+      '',
+      'The rough version:',
+      data.get('rough_version'),
+      '',
+      `Who it is for: ${data.get('audience')}`,
+      `A good version would help me: ${outcomes}`,
+      '',
+      'Tools I already use:',
+      data.get('current_tools') || 'None listed',
+      '',
+      `Timeline: ${data.get('timeline')}`,
+      '',
+      `Name: ${data.get('name')}`,
+      `Email: ${data.get('email')}`,
+      `Website / business link: ${data.get('business_link') || 'Not provided'}`
+    ].join('\n');
+
+    showFormStep('complete');
+    window.setTimeout(() => {
+      window.location.href = `mailto:contact@samjordanco.com?subject=${encodeURIComponent(`Build request from ${data.get('name')}`)}&body=${encodeURIComponent(body)}`;
+    }, 650);
+  });
 </script>
 </body>
 </html>
