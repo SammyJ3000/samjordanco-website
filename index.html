@@ -551,42 +551,14 @@
   }
   .sticky-conversation p { margin: 0; font-size: 0.8rem; line-height: 1.3; }
   .sticky-conversation small { display: block; margin-top: 0.2rem; color: var(--sand); font-size: 0.65rem; letter-spacing: 0.03em; }
-  .sticky-conversation .button { flex: 0 0 auto; background: var(--white); color: var(--black); }
-
-  .idea-prompt { display: none; }
-  .js .idea-prompt {
-    width: min(calc(100% - 1rem), 24rem);
-    position: fixed;
-    z-index: 60;
-    right: 0.5rem;
-    bottom: 9.8rem;
-    padding: 1.2rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    display: block;
-    background: var(--white);
-    box-shadow: var(--shadow-soft);
-    opacity: 0;
-    pointer-events: none;
-    transform: translate3d(0, 1.25rem, 0);
-    transition: opacity 320ms ease, transform 320ms ease;
+  .sticky-actions { display: flex; flex-direction: column; gap: 0.55rem; }
+  .sticky-conversation .button { width: 100%; flex: 0 0 auto; justify-content: center; background: var(--white); color: var(--black); }
+  .sticky-conversation .button.secondary {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
   }
-  .js .idea-prompt.is-visible { opacity: 1; pointer-events: auto; transform: translate3d(0, 0, 0); }
-  .idea-prompt h2 { margin: 0 2rem 0.45rem 0; font-size: 1.35rem; line-height: 1; letter-spacing: -0.045em; }
-  .idea-prompt p { margin: 0 0 1rem; color: var(--charcoal); font-size: 0.8rem; }
-  .idea-prompt .button { width: 100%; }
-  .prompt-close {
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--charcoal);
-    cursor: pointer;
-  }
+  .sticky-conversation .button.secondary:hover { background: rgba(255, 255, 255, 0.14); }
 
   body.form-open { overflow: hidden; }
   .build-modal {
@@ -761,9 +733,10 @@
     .footer { padding-bottom: 7rem; }
     .reassurance-card { grid-template-columns: auto 1fr; align-items: start; padding: var(--s6); }
     .faq-grid { grid-template-columns: 0.75fr 1.25fr; gap: var(--s7); }
-    .sticky-conversation { left: 50%; right: auto; width: min(calc(100% - 2rem), 58rem); flex-direction: row; align-items: center; justify-content: space-between; transform: translateX(-50%); }
+    .sticky-conversation { left: 50%; right: auto; width: min(calc(100% - 2rem), 64rem); flex-direction: row; align-items: center; justify-content: space-between; transform: translateX(-50%); }
     .sticky-conversation p { font-size: 0.88rem; }
-    .js .idea-prompt { right: 1rem; bottom: 6.8rem; }
+    .sticky-actions { flex-direction: row; align-items: center; }
+    .sticky-conversation .button { width: auto; }
     .build-modal { padding: 1rem; }
     .form-step { padding: var(--s6); }
     .choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1200,20 +1173,16 @@
   </div>
 </footer>
 
-<aside class="idea-prompt" aria-labelledby="idea-prompt-title">
-  <button class="prompt-close" type="button" aria-label="Dismiss message">&times;</button>
-  <h2 id="idea-prompt-title">Doing something like this by hand?</h2>
-  <p>If a spreadsheet, inbox, notes app, or repeated admin task is holding the whole thing together, send it over and I will tell you what is buildable.</p>
-  <a class="button" data-build-form href="mailto:contact@samjordanco.com?subject=Tool%20idea%20for%20Sam">Send idea
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</aside>
-
 <aside class="sticky-conversation" aria-label="Start a build conversation">
   <p>Still doing the same admin, tracking, or copy-paste job every week?<small>Currently taking on 1-2 small builds this month</small></p>
-  <a class="button" data-build-form href="mailto:contact@samjordanco.com?subject=Start%20a%20build%20conversation">Start a build conversation
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
+  <div class="sticky-actions">
+    <a class="button secondary" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Email Sam
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 6.5h13v8h-13v-8Z" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/><path d="m4 7 6 4.4L16 7" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="button" data-build-form href="mailto:contact@samjordanco.com?subject=Start%20a%20build%20conversation">Start build convo
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
 </aside>
 
 <div class="build-modal" aria-hidden="true">
@@ -1356,28 +1325,6 @@
   }, { passive: true });
   updateMotion();
 
-  const ideaPrompt = document.querySelector('.idea-prompt');
-  const projectSection = document.querySelector('#projects');
-  const promptClose = document.querySelector('.prompt-close');
-  let promptDismissed = false;
-
-  if ('IntersectionObserver' in window && ideaPrompt && projectSection) {
-    const promptObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0 && !promptDismissed) {
-          ideaPrompt.classList.add('is-visible');
-          promptObserver.disconnect();
-        }
-      });
-    }, { threshold: 0 });
-    promptObserver.observe(projectSection);
-  }
-
-  promptClose?.addEventListener('click', () => {
-    promptDismissed = true;
-    ideaPrompt.classList.remove('is-visible');
-  });
-
   const buildModal = document.querySelector('.build-modal');
   const buildForm = document.querySelector('.build-form');
   const formSteps = [...document.querySelectorAll('.form-step')];
@@ -1446,7 +1393,6 @@
   openFormButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      ideaPrompt?.classList.remove('is-visible');
       openBuildForm(button);
     });
   });
