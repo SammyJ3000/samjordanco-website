@@ -708,27 +708,11 @@
   .choice input:focus-visible + span { outline: 2px solid var(--rust); outline-offset: 3px; }
   .choice input:checked + span { border-color: var(--rust); background: var(--rust-deep); color: var(--white); transform: translateY(-2px); }
   .choice input:checked + span::before { border-color: var(--white); background: var(--rust); }
-  .choice.checkbox span::before { border-radius: 0.2rem; }
-  .form-field { margin-top: var(--s5); }
-  .form-field label { display: block; margin-bottom: 0.5rem; color: var(--grey-blue); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-  .form-field textarea, .form-field input {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: rgba(251, 250, 247, 0.78);
-    color: var(--black);
-    font: inherit;
-    transition: border-color 180ms ease, transform 180ms ease;
-  }
-  .form-field textarea { min-height: 10rem; padding: 1rem; resize: vertical; }
-  .form-field input { min-height: 3.6rem; padding: 0 1rem; }
-  .form-field textarea:focus, .form-field input:focus { border-color: var(--rust); outline: 0; transform: translateY(-1px); }
-  .form-field-row { display: grid; gap: var(--s3); }
   .step-actions { margin-top: var(--s5); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.7rem; }
   .step-actions .button { min-width: 8rem; cursor: pointer; }
   .step-actions .button:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
   .back-button { border: 0; background: transparent; color: var(--grey-blue); cursor: pointer; font-size: 0.78rem; font-weight: 600; }
-  .selection-count, .choice-hint { color: var(--grey-blue); font-size: 0.72rem; }
+  .choice-hint { color: var(--grey-blue); font-size: 0.72rem; }
   .form-message { min-height: 1.25rem; margin: 0.7rem 0 0; color: var(--rust-deep); font-size: 0.74rem; font-weight: 500; }
   .form-complete { text-align: center; }
   .complete-mark {
@@ -783,8 +767,6 @@
     .build-modal { padding: 1rem; }
     .form-step { padding: var(--s6); }
     .choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .choice-grid.outcomes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .form-field-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (max-width: 41.99rem) {
@@ -1238,7 +1220,7 @@
   <div class="build-modal-shell" role="dialog" aria-modal="true" aria-labelledby="build-form-title">
     <div class="form-topbar">
       <div>
-        <div class="form-progress-copy"><span>Build request</span><span class="form-step-count">Step 1 of 8</span></div>
+        <div class="form-progress-copy"><span>Quick request</span><span class="form-step-count">Step 1 of 5</span></div>
         <div class="form-progress-track" aria-hidden="true"><div class="form-progress-bar"></div></div>
       </div>
       <button class="form-close" type="button"><span aria-hidden="true">&times;</span> Exit form</button>
@@ -1247,15 +1229,15 @@
     <form class="build-form" action="mailto:contact@samjordanco.com" method="post" enctype="text/plain">
       <section class="form-step is-active" data-step="1">
         <div class="step-inner">
-          <p class="step-kicker">Pick the closest shape</p>
-          <h2 id="build-form-title">What kind of tool would remove the <em>annoying bit?</em></h2>
+          <p class="step-kicker">Start with the pain</p>
+          <h2 id="build-form-title">What is the annoying bit you want to <em>stop doing?</em></h2>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="build_type" value="AI tool" required><span>AI tool</span></label>
-            <label class="choice"><input type="radio" name="build_type" value="Automation"><span>Automation</span></label>
-            <label class="choice"><input type="radio" name="build_type" value="Web app"><span>Web app</span></label>
-            <label class="choice"><input type="radio" name="build_type" value="Internal dashboard"><span>Internal dashboard</span></label>
-            <label class="choice"><input type="radio" name="build_type" value="MVP / prototype"><span>MVP / prototype</span></label>
-            <label class="choice"><input type="radio" name="build_type" value="Not sure yet"><span>Not sure yet</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="Copying, chasing, or updating admin" required><span>Copying, chasing, or updating admin</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="Information is scattered everywhere"><span>Information is scattered everywhere</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="Different tools do not talk to each other"><span>Different tools do not talk to each other</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="I need a simple app, portal, or dashboard"><span>I need a simple app, portal, or dashboard</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="I want AI to draft, sort, or tidy something"><span>I want AI to draft, sort, or tidy something</span></label>
+            <label class="choice"><input type="radio" name="problem_area" value="Not sure, I just know it is clunky"><span>Not sure, I just know it is clunky</span></label>
           </div>
           <p class="form-message" aria-live="polite"></p>
           <div class="step-actions"><span class="choice-hint">Choose one to continue</span><span></span></div>
@@ -1264,15 +1246,15 @@
 
       <section class="form-step" data-step="2">
         <div class="step-inner">
-          <p class="step-kicker">What is really happening?</p>
-          <h2>What pain are we trying to <em>remove?</em></h2>
+          <p class="step-kicker">Current setup</p>
+          <h2>What is mostly holding this together <em>right now?</em></h2>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="description_type" value="I have an idea for a tool" required><span>I have an idea for a tool</span></label>
-            <label class="choice"><input type="radio" name="description_type" value="I have a repetitive task I want to automate"><span>I have a repetitive task I want to automate</span></label>
-            <label class="choice"><input type="radio" name="description_type" value="I have a messy workflow I want to simplify"><span>I have a messy workflow I want to simplify</span></label>
-            <label class="choice"><input type="radio" name="description_type" value="I need something connected together"><span>I need something connected together</span></label>
-            <label class="choice"><input type="radio" name="description_type" value="I want to improve something I already use"><span>I want to improve something I already use</span></label>
-            <label class="choice"><input type="radio" name="description_type" value="I am not sure, I just know the current way is annoying"><span>I am not sure, I just know the current way is annoying</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="Spreadsheets" required><span>Spreadsheets</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="Email, WhatsApp, or DMs"><span>Email, WhatsApp, or DMs</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="Notion, Airtable, CRM, or another workspace"><span>Notion, Airtable, CRM, or another workspace</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="Website forms or customer enquiries"><span>Website forms or customer enquiries</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="A messy mix of apps"><span>A messy mix of apps</span></label>
+            <label class="choice"><input type="radio" name="current_setup" value="Mostly memory and manual work"><span>Mostly memory and manual work</span></label>
           </div>
           <p class="form-message" aria-live="polite"></p>
           <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
@@ -1281,29 +1263,30 @@
 
       <section class="form-step" data-step="3">
         <div class="step-inner">
-          <p class="step-kicker">No polished brief needed</p>
-          <h2>Tell me the messy version, <em>exactly as it is.</em></h2>
-          <p class="step-help">Plain English is best. What do you do now? What gets repeated? Where does it slow down?</p>
-          <div class="form-field">
-            <label for="rough-version">What happens now?</label>
-            <textarea id="rough-version" name="rough_version" required placeholder="Example: Every week I copy client info from a form into a spreadsheet, write the same welcome email, and manually track who has paid."></textarea>
+          <p class="step-kicker">First useful win</p>
+          <h2>What would make this worth <em>fixing first?</em></h2>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="first_win" value="Save time every week" required><span>Save time every week</span></label>
+            <label class="choice"><input type="radio" name="first_win" value="Stop mistakes and missed follow-ups"><span>Stop mistakes and missed follow-ups</span></label>
+            <label class="choice"><input type="radio" name="first_win" value="See everything in one place"><span>See everything in one place</span></label>
+            <label class="choice"><input type="radio" name="first_win" value="Reply, draft, or create faster"><span>Reply, draft, or create faster</span></label>
+            <label class="choice"><input type="radio" name="first_win" value="Make it look more professional"><span>Make it look more professional</span></label>
+            <label class="choice"><input type="radio" name="first_win" value="Test whether the idea is worth building"><span>Test whether the idea is worth building</span></label>
           </div>
           <p class="form-message" aria-live="polite"></p>
-          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
         </div>
       </section>
 
       <section class="form-step" data-step="4">
         <div class="step-inner">
-          <p class="step-kicker">Who feels the benefit?</p>
-          <h2>Who would use it, or notice that it <em>works?</em></h2>
+          <p class="step-kicker">Best next step</p>
+          <h2>What would you like me to send back <em>first?</em></h2>
           <div class="choice-grid">
-            <label class="choice"><input type="radio" name="audience" value="Just me" required><span>Just me</span></label>
-            <label class="choice"><input type="radio" name="audience" value="My business"><span>My business</span></label>
-            <label class="choice"><input type="radio" name="audience" value="My clients/customers"><span>My clients/customers</span></label>
-            <label class="choice"><input type="radio" name="audience" value="My team"><span>My team</span></label>
-            <label class="choice"><input type="radio" name="audience" value="A community/group"><span>A community/group</span></label>
-            <label class="choice"><input type="radio" name="audience" value="Public users"><span>Public users</span></label>
+            <label class="choice"><input type="radio" name="next_move" value="Email me what looks buildable" required><span>Email me what looks buildable</span></label>
+            <label class="choice"><input type="radio" name="next_move" value="Suggest a quick call if it makes sense"><span>Suggest a quick call if it makes sense</span></label>
+            <label class="choice"><input type="radio" name="next_move" value="Tell me the simplest first version"><span>Tell me the simplest first version</span></label>
+            <label class="choice"><input type="radio" name="next_move" value="Tell me if this is too complex or not worth building yet"><span>Tell me if this is too complex or not worth building yet</span></label>
           </div>
           <p class="form-message" aria-live="polite"></p>
           <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
@@ -1312,67 +1295,11 @@
 
       <section class="form-step" data-step="5">
         <div class="step-inner">
-          <p class="step-kicker">Pick up to three</p>
-          <h2>What would make this feel worth <em>building?</em></h2>
-          <div class="choice-grid outcomes">
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Save time"><span>Save time</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Reduce manual admin"><span>Reduce manual admin</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Organise information"><span>Organise information</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Reply faster"><span>Reply faster</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Track progress"><span>Track progress</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Create content"><span>Create content</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Manage clients/customers"><span>Manage clients/customers</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Connect tools together"><span>Connect tools together</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Test an idea"><span>Test an idea</span></label>
-            <label class="choice checkbox"><input type="checkbox" name="outcomes" value="Make something look more professional"><span>Make something look more professional</span></label>
-          </div>
-          <p class="selection-count outcome-selection-count">0 of 3 selected</p>
+          <p class="step-kicker">Ready to send</p>
+          <h2>Good. I can work from that and reply with the <em>simplest useful route.</em></h2>
+          <p class="step-help">No form essay needed. Your email app will open with these choices already written, so I can reply or suggest a call.</p>
           <p class="form-message" aria-live="polite"></p>
-          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
-        </div>
-      </section>
-
-      <section class="form-step" data-step="6">
-        <div class="step-inner">
-          <p class="step-kicker">The current stack</p>
-          <h2>What is holding it together <em>right now?</em></h2>
-          <p class="step-help">List anything relevant. It is fine if the honest answer is "a spreadsheet and hope".</p>
-          <div class="form-field">
-            <label for="current-tools">Apps, tools, spreadsheets, inboxes, or workarounds</label>
-            <textarea id="current-tools" name="current_tools" placeholder="Google Sheets, Notion, Airtable, WhatsApp, Instagram, email, Stripe, Calendly, Zapier, Make, ChatGPT, Claude, existing website, etc."></textarea>
-          </div>
-          <p class="form-message" aria-live="polite"></p>
-          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button next-step" type="button">Next step <span aria-hidden="true">&rarr;</span></button></div>
-        </div>
-      </section>
-
-      <section class="form-step" data-step="7">
-        <div class="step-inner">
-          <p class="step-kicker">Priority check</p>
-          <h2>How soon does this need to stop being <em>manual?</em></h2>
-          <div class="choice-grid">
-            <label class="choice"><input type="radio" name="timeline" value="Just exploring" required><span>Just exploring</span></label>
-            <label class="choice"><input type="radio" name="timeline" value="This month"><span>This month</span></label>
-            <label class="choice"><input type="radio" name="timeline" value="As soon as possible"><span>As soon as possible</span></label>
-            <label class="choice"><input type="radio" name="timeline" value="I have a deadline"><span>I have a deadline</span></label>
-            <label class="choice"><input type="radio" name="timeline" value="Not sure"><span>Not sure</span></label>
-          </div>
-          <p class="form-message" aria-live="polite"></p>
-          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><span class="choice-hint">Choose one to continue</span></div>
-        </div>
-      </section>
-
-      <section class="form-step" data-step="8">
-        <div class="step-inner">
-          <p class="step-kicker">Nearly there</p>
-          <h2>Where should I send the <em>first useful reply?</em></h2>
-          <div class="form-field-row">
-            <div class="form-field"><label for="request-name">Name</label><input id="request-name" name="name" type="text" autocomplete="name" required></div>
-            <div class="form-field"><label for="request-email">Email</label><input id="request-email" name="email" type="email" autocomplete="email" required></div>
-          </div>
-          <div class="form-field"><label for="request-link">Website / Instagram / business link <span class="editorial">(optional)</span></label><input id="request-link" name="business_link" type="url" inputmode="url" placeholder="https://"></div>
-          <p class="form-message" aria-live="polite"></p>
-          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button submit-request" type="submit">Send build request <span aria-hidden="true">&rarr;</span></button></div>
+          <div class="step-actions"><button class="back-button" type="button">&larr; Back</button><button class="button send-click-request" type="button">Open email request <span aria-hidden="true">&rarr;</span></button></div>
         </div>
       </section>
 
@@ -1458,12 +1385,19 @@
   const openFormButtons = document.querySelectorAll('[data-build-form]');
   const formClose = document.querySelector('.form-close');
   const finishForm = document.querySelector('.finish-form');
+  const sendClickRequest = document.querySelector('.send-click-request');
   const stepCount = document.querySelector('.form-step-count');
   const formProgress = document.querySelector('.form-progress-bar');
-  const outcomeInputs = [...document.querySelectorAll('input[name="outcomes"]')];
-  const selectionCount = document.querySelector('.outcome-selection-count');
   let currentStep = 0;
   let lastFormTrigger = null;
+
+  const suggestionMap = {
+    'AI tool': 'I want AI to draft, sort, or tidy something',
+    'Automation': 'Different tools do not talk to each other',
+    'Web app': 'I need a simple app, portal, or dashboard',
+    'Internal dashboard': 'I need a simple app, portal, or dashboard',
+    'MVP / prototype': 'Test whether the idea is worth building'
+  };
 
   const showFormStep = (index) => {
     currentStep = index;
@@ -1477,18 +1411,17 @@
     } else {
       stepCount.textContent = `Step ${index + 1} of ${numberedSteps.length}`;
       formProgress.style.transform = `scaleX(${(index + 1) / numberedSteps.length})`;
-      window.setTimeout(() => step.querySelector('input, textarea, button')?.focus(), 80);
+      window.setTimeout(() => step.querySelector('input, button')?.focus(), 80);
     }
   };
 
   const resetBuildForm = (suggestedType = '') => {
     buildForm.reset();
-    outcomeInputs.forEach((input) => { input.disabled = false; });
-    selectionCount.textContent = '0 of 3 selected';
     numberedSteps.forEach((step) => { step.querySelector('.form-message').textContent = ''; });
     if (suggestedType) {
-      const matchingType = [...buildForm.querySelectorAll('input[name="build_type"]')].find((input) => input.value === suggestedType);
-      if (matchingType) matchingType.checked = true;
+      const suggestedProblem = suggestionMap[suggestedType] || suggestedType;
+      const matchingProblem = [...buildForm.querySelectorAll('input[name="problem_area"]')].find((input) => input.value === suggestedProblem);
+      if (matchingProblem) matchingProblem.checked = true;
     }
     showFormStep(0);
   };
@@ -1534,26 +1467,14 @@
     const message = step.querySelector('.form-message');
     const requiredInputs = [...step.querySelectorAll('[required]')];
 
-    if (step.dataset.step === '5' && !outcomeInputs.some((input) => input.checked)) {
-      message.textContent = 'Choose at least one useful outcome to continue.';
-      return false;
-    }
-
     const invalid = requiredInputs.find((input) => {
       if (input.type === 'radio') return !step.querySelector(`input[name="${input.name}"]:checked`);
       return !input.checkValidity();
     });
 
     if (invalid) {
-      message.textContent = invalid.type === 'email' ? 'Add a valid email address so I can reply.' : 'Add an answer here before moving on.';
+      message.textContent = 'Choose the closest option before moving on.';
       invalid.focus();
-      return false;
-    }
-
-    const optionalUrl = step.querySelector('input[type="url"]');
-    if (optionalUrl?.value && !optionalUrl.checkValidity()) {
-      message.textContent = 'Add the full link, including https://';
-      optionalUrl.focus();
       return false;
     }
 
@@ -1589,48 +1510,34 @@
     button.addEventListener('click', () => showFormStep(Math.max(0, currentStep - 1)));
   });
 
-  outcomeInputs.forEach((input) => {
-    input.addEventListener('change', () => {
-      const selected = outcomeInputs.filter((item) => item.checked);
-      outcomeInputs.forEach((item) => { item.disabled = selected.length >= 3 && !item.checked; });
-      selectionCount.textContent = `${selected.length} of 3 selected`;
-    });
-  });
-
-  buildForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!validateStep(numberedSteps[7])) return;
-
+  const openEmailRequest = () => {
     const data = new FormData(buildForm);
-    const outcomes = data.getAll('outcomes').join(', ');
     const body = [
       'Hi Sam,',
       '',
-      'Here is my build request:',
+      'I clicked through the quick request form.',
       '',
-      `What I want to build: ${data.get('build_type')}`,
-      `What best describes it: ${data.get('description_type')}`,
+      `The annoying bit: ${data.get('problem_area')}`,
+      `Mostly held together by: ${data.get('current_setup')}`,
+      `The first useful win: ${data.get('first_win')}`,
+      `What I want next: ${data.get('next_move')}`,
       '',
-      'The rough version:',
-      data.get('rough_version'),
+      'Please reply to this email with what looks buildable, what you would simplify first, and whether a quick call makes sense.',
       '',
-      `Who it is for: ${data.get('audience')}`,
-      `A good version would help me: ${outcomes}`,
-      '',
-      'Tools I already use:',
-      data.get('current_tools') || 'None listed',
-      '',
-      `Timeline: ${data.get('timeline')}`,
-      '',
-      `Name: ${data.get('name')}`,
-      `Email: ${data.get('email')}`,
-      `Website / business link: ${data.get('business_link') || 'Not provided'}`
+      'Thanks'
     ].join('\n');
 
     showFormStep('complete');
     window.setTimeout(() => {
-      window.location.href = `mailto:contact@samjordanco.com?subject=${encodeURIComponent(`Build request from ${data.get('name')}`)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:contact@samjordanco.com?subject=${encodeURIComponent('Quick build request')}&body=${encodeURIComponent(body)}`;
     }, 650);
+  };
+
+  sendClickRequest?.addEventListener('click', openEmailRequest);
+
+  buildForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (currentStep === numberedSteps.length - 1) openEmailRequest();
   });
 </script>
 </body>
