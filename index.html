@@ -186,8 +186,15 @@
   .nav-links { display: none; align-items: center; gap: 1.6rem; }
   .nav-links a { color: var(--charcoal); font-size: 0.92rem; font-weight: 500; text-decoration: none; }
   .nav-links a:hover { color: var(--rust-deep); }
-  .nav .button { min-height: 3.05rem; padding-inline: 0.92rem; font-size: 0.88rem; }
-  .nav .button { animation: nav-breathe 4.8s ease-in-out infinite; }
+  .nav-actions { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .nav .button { min-height: 2.85rem; padding-inline: 0.78rem; font-size: 0.8rem; white-space: nowrap; }
+  .nav .button.nav-email {
+    border-color: rgba(28, 27, 25, 0.1);
+    background: rgba(255, 255, 255, 0.42);
+    color: var(--black);
+  }
+  .nav .button.nav-email:hover { background: var(--white); }
+  .nav .button.nav-build { animation: nav-breathe 4.8s ease-in-out infinite; }
   @keyframes nav-breathe {
     50% { transform: translate3d(0, -1px, 0) scale(1.018); }
   }
@@ -714,8 +721,7 @@
     .container { width: min(calc(100% - 3rem), var(--max)); }
     .nav { width: min(calc(100% - 2rem), var(--max)); padding-left: 1.3rem; }
     .brand { font-size: 1.24rem; }
-    .nav-links { display: flex; }
-    .nav .button { padding-inline: 1.12rem; font-size: 0.92rem; }
+    .nav .button { padding-inline: 1.02rem; font-size: 0.88rem; }
     .hero { padding: 7.5rem 0 2rem; }
     .hero-shell { padding: var(--s5); }
     .hero-topline { flex-direction: row; align-items: center; justify-content: space-between; }
@@ -749,6 +755,11 @@
     .form-close span { font-size: 1.2rem; }
     .form-step { padding: var(--s5) var(--s4); }
     .step-actions .button { min-width: 8rem; }
+  }
+
+  @media (min-width: 58rem) {
+    .nav-links { display: flex; }
+    .nav .button { padding-inline: 1.12rem; font-size: 0.92rem; }
   }
 
   @media (min-width: 68rem) {
@@ -884,9 +895,14 @@
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="button" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Get in touch
-      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="nav-actions">
+      <a class="button nav-email" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Email Sam
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 6.5h13v8h-13v-8Z" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/><path d="m4 7 6 4.4L16 7" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="button nav-build" data-build-form href="mailto:contact@samjordanco.com?subject=Quick%20build%20check">Check an idea
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </nav>
 </div>
 
