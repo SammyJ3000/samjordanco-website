@@ -1,4 +1,4 @@
-import{g as fn}from"./gsap-SFc2wnMY.js";import{c as yi}from"./main-DqmPZyJP.js";function wi(i,e){for(var n=0;n<e.length;n++){var t=e[n];t.enumerable=t.enumerable||!1,t.configurable=!0,"value"in t&&(t.writable=!0),Object.defineProperty(i,t.key,t)}}function Ci(i,e,n){return e&&wi(i.prototype,e),i}/*!
+import{g as fn}from"./gsap-SFc2wnMY.js";import{c as yi}from"./main-DzwjUKZM.js";function wi(i,e){for(var n=0;n<e.length;n++){var t=e[n];t.enumerable=t.enumerable||!1,t.configurable=!0,"value"in t&&(t.writable=!0),Object.defineProperty(i,t.key,t)}}function Ci(i,e,n){return e&&wi(i.prototype,e),i}/*!
  * Observer 3.15.0
  * https://gsap.com
  *
