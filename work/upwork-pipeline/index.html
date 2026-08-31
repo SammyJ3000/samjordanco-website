@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upwork Screening Pipeline — Sam Jordan</title>
+<meta name="description" content="Scrapes the job board, throws away the ones that were never a fit, and drafts proposals only for the rest.">
+<link rel="canonical" href="https://samjordanco.com/work/upwork-pipeline/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://samjordanco.com/work/upwork-pipeline/">
+<meta property="og:title" content="Upwork Screening Pipeline — Sam Jordan">
+<meta property="og:description" content="Scrapes the job board, throws away the ones that were never a fit, and drafts proposals only for the rest.">
+<meta property="og:image" content="https://samjordanco.com/og/upwork-pipeline.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238e4a2e'/%3E%3Ctext x='32' y='44' fill='%23f2eee6' font-family='Helvetica,Arial' font-size='34' font-weight='500' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="module" crossorigin src="/assets/main-CgjVOz8r.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-qTTktP2P.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="nav-wrap">
+  <nav class="nav container" aria-label="Main">
+    <a class="brand" href="/" aria-label="SamJordan, home">Sam<em>Jordan</em><span class="brand-dot" aria-hidden="true"></span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/work/" aria-current="page">Work</a>
+      <a class="nav-link" href="/#process">Process</a>
+      <a class="nav-link" href="/#about">About</a>
+      <a class="nav-link" href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <span class="availability">Taking 1&ndash;2 builds this month</span>
+      <a class="button" data-build-form data-magnetic="0.2" href="/#build-request">Start a build <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+<section class="cs-hero" data-chapter="dark">
+  <div class="container">
+    <a class="cs-back" href="/work/"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> All work</a>
+    
+    <div class="cs-hero__meta">
+      <span class="label label--bare">Automation</span>
+      <span class="label label--bare">Lead generation</span>
+      <span class="label label--bare">2026</span>
+      <span class="label label--bare">private</span>
+    </div>
+    <h1 data-reveal="chars" data-split="words">Upwork Screening Pipeline</h1>
+    <p class="cs-hero__tagline" data-reveal="fade">Scrapes the job board, throws away the ones that were never a fit, and drafts proposals only for the rest.</p>
+    <div class="cs-hero__media" data-reveal="wipe"><picture>
+  <source type="image/avif" srcset="/media/upwork-pipeline-still-c9fcfea0-480.avif 480w, /media/upwork-pipeline-still-c9fcfea0-768.avif 768w, /media/upwork-pipeline-still-c9fcfea0-1200.avif 1200w, /media/upwork-pipeline-still-c9fcfea0-1800.avif 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <source type="image/webp" srcset="/media/upwork-pipeline-still-c9fcfea0-480.webp 480w, /media/upwork-pipeline-still-c9fcfea0-768.webp 768w, /media/upwork-pipeline-still-c9fcfea0-1200.webp 1200w, /media/upwork-pipeline-still-c9fcfea0-1800.webp 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <img src="/media/upwork-pipeline-still-c9fcfea0-1200.webp" alt="Pipeline diagram: scrape, then one batched screening call, then draft proposals for what survives" width="2232" height="580" loading="eager" decoding="async" class="">
+</picture></div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">The problem</h2>
+    <div class="cs-body" data-reveal="fade"><p>Applying on a freelance job board is a volume game with a nasty shape: the writing is the expensive part, and most of the jobs you write for were never going to be a fit.</p>
+<p>Filtering by keyword does not work — the postings that match your keywords are the ones everyone else has already applied to, and the ones worth having rarely describe themselves the way you would.</p></div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What I built</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>A three-stage pipeline. Scrape the board into a batch. Run one batched judgement pass over roughly forty jobs at a time that marks each one apply, maybe or skip against a written target profile. Then generate proposals for what survives.</p>
+<p>The ordering is the whole design. Screening happens before generation, so an off-target job costs a fraction of a cent instead of a full proposal. One batched call handles forty jobs; forty individual calls would cost more and read no better.</p>
+<p>Every stage is a deterministic script with the judgement isolated to one step — the scraper does not think, the generator does not decide, and the screening pass is the only place a model gets an opinion.</p>
+      <div class="skill-list" style="margin-top: var(--s6)"><span class="chip">Python</span>
+<span class="chip">Apify</span>
+<span class="chip">Playwright</span>
+<span class="chip">Claude API</span>
+<span class="chip">Batched screening</span></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container">
+    <p class="label" data-reveal="fade" style="margin-bottom: var(--s6)">The shape of it</p>
+    <div class="pipeline-wrap" data-reveal="fade">
+  <div data-pipeline="upwork"></div>
+</div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What changed</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>Cost per applied-to job fell by roughly the proportion of jobs that get screened out, which is most of them. The more useful outcome was that the proposals got better, because they were only ever written for jobs that actually fit.</p>
+      <dl class="metrics" data-reveal="stagger">
+  <div class="metric">
+    <dt>Stages</dt>
+    <dd>3</dd>
+  </div>
+  <div class="metric">
+    <dt>Jobs per screening call</dt>
+    <dd>~40</dd>
+  </div>
+  <div class="metric">
+    <dt>Then write</dt>
+    <dd>Skip first</dd>
+  </div>
+</dl>
+    </div>
+  </div>
+</section>
+
+<a class="cs-next" href="/work/world-cup-sweepstake/" data-cursor="view">
+  <div class="container cs-next__inner">
+    <p class="label">Next project</p>
+    <h2>World Cup Sweepstake App <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h2>
+    <p class="lede">A 100+ player sweepstake that would have been a spreadsheet nightmare, run as a live app instead.</p>
+  </div>
+</a>
+
+<section class="chapter">
+  <div class="container">
+    <div class="contact-card" data-chapter="dark" data-reveal="fade">
+      <p class="label">The easiest next step</p>
+      <h2 data-reveal="chars" data-split="words">Want something like this <em>for your workflow?</em></h2>
+      <p class="lede" style="margin-inline: auto; margin-top: var(--s5)">
+        Tell me what you are doing by hand right now. That is genuinely enough to start from.
+      </p>
+      <div class="contact-actions">
+        <a class="button button--light" data-build-form data-magnetic="0.2" href="/#build-request">Start a build request <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="button button--ghost" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Email me directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-meta">Sam Jordan / Custom tool builder</span>
+    <div class="footer-links">
+      <a class="nav-link" href="/work/">Work</a>
+      <a class="nav-link" href="mailto:contact@samjordanco.com">Email</a>
+    </div>
+    <span class="footer-meta">&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property Maintenance Triage — Sam Jordan</title>
+<meta name="description" content="Tenant reports a leak, the agent triages it, prices it, picks a contractor and puts one decision in front of the landlord.">
+<link rel="canonical" href="https://samjordanco.com/work/maintenance-triage-agent/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://samjordanco.com/work/maintenance-triage-agent/">
+<meta property="og:title" content="Property Maintenance Triage — Sam Jordan">
+<meta property="og:description" content="Tenant reports a leak, the agent triages it, prices it, picks a contractor and puts one decision in front of the landlord.">
+<meta property="og:image" content="https://samjordanco.com/og/maintenance-triage-agent.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238e4a2e'/%3E%3Ctext x='32' y='44' fill='%23f2eee6' font-family='Helvetica,Arial' font-size='34' font-weight='500' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="module" crossorigin src="/assets/main-CgjVOz8r.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-qTTktP2P.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="nav-wrap">
+  <nav class="nav container" aria-label="Main">
+    <a class="brand" href="/" aria-label="SamJordan, home">Sam<em>Jordan</em><span class="brand-dot" aria-hidden="true"></span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/work/" aria-current="page">Work</a>
+      <a class="nav-link" href="/#process">Process</a>
+      <a class="nav-link" href="/#about">About</a>
+      <a class="nav-link" href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <span class="availability">Taking 1&ndash;2 builds this month</span>
+      <a class="button" data-build-form data-magnetic="0.2" href="/#build-request">Start a build <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+<section class="cs-hero" data-chapter="dark">
+  <div class="container">
+    <a class="cs-back" href="/work/"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> All work</a>
+    
+    <div class="cs-hero__meta">
+      <span class="label label--bare">AI tool</span>
+      <span class="label label--bare">Property</span>
+      <span class="label label--bare">2026</span>
+      <span class="label label--bare">live</span>
+    </div>
+    <h1 data-reveal="chars" data-split="words">Property Maintenance Triage</h1>
+    <p class="cs-hero__tagline" data-reveal="fade">Tenant reports a leak, the agent triages it, prices it, picks a contractor and puts one decision in front of the landlord.</p>
+    <div class="cs-hero__media" data-reveal="wipe"><picture>
+  <source type="image/avif" srcset="/media/landlord-dashboard-85e87e1b-480.avif 480w, /media/landlord-dashboard-85e87e1b-768.avif 768w, /media/landlord-dashboard-85e87e1b-1200.avif 1200w, /media/landlord-dashboard-85e87e1b-1800.avif 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <source type="image/webp" srcset="/media/landlord-dashboard-85e87e1b-480.webp 480w, /media/landlord-dashboard-85e87e1b-768.webp 768w, /media/landlord-dashboard-85e87e1b-1200.webp 1200w, /media/landlord-dashboard-85e87e1b-1800.webp 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <img src="/media/landlord-dashboard-85e87e1b-1200.webp" alt="Maintenance operations dashboard showing the live request queue and a triaged plumbing job" width="2880" height="1800" loading="eager" decoding="async" class="">
+</picture></div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">The problem</h2>
+    <div class="cs-body" data-reveal="fade"><p>A tenant messages &quot;there is water coming through the kitchen ceiling&quot; at nine on a Sunday night. What follows is a chain of small delays: someone reads it Monday, asks the tenant three follow-up questions, works out whether it is urgent, finds a plumber, gets a rough price, and asks the landlord to approve.</p>
+<p>None of those steps is hard. All of them are waiting. And the cost of the delay is not admin time — it is the ceiling.</p></div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What I built</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>An agent that takes the tenant message in whatever form it arrives, classifies the trade and urgency, produces a plain-English summary, estimates a rough price band from the trade and risk language, and recommends a contractor and a dispatch mode.</p>
+<p>The landlord sees one card with one decision on it. There is an approval rule with a quote limit, so anything urgent under the limit can be auto-accepted and anything above it waits for a human. The point is not to remove the landlord, it is to remove the four messages that used to happen before the landlord could decide anything.</p>
+<p>Requests move across a status board — open, urgent, ready, waiting on tenant info — so the thing that is stuck is visible rather than sitting in somebody&#39;s inbox.</p>
+      <div class="skill-list" style="margin-top: var(--s6)"><span class="chip">Node</span>
+<span class="chip">Claude API</span>
+<span class="chip">Telegram bot</span>
+<span class="chip">Triage rules engine</span>
+<span class="chip">Playwright</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-gallery cs-gallery--pair" data-reveal="stagger">
+      <figure class="cs-shot">
+        <picture>
+  <source type="image/avif" srcset="/media/landlord-dashboard-tall-2c0cbd84-480.avif 480w, /media/landlord-dashboard-tall-2c0cbd84-768.avif 768w, /media/landlord-dashboard-tall-2c0cbd84-1200.avif 1200w, /media/landlord-dashboard-tall-2c0cbd84-1800.avif 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <source type="image/webp" srcset="/media/landlord-dashboard-tall-2c0cbd84-480.webp 480w, /media/landlord-dashboard-tall-2c0cbd84-768.webp 768w, /media/landlord-dashboard-tall-2c0cbd84-1200.webp 1200w, /media/landlord-dashboard-tall-2c0cbd84-1800.webp 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <img src="/media/landlord-dashboard-tall-2c0cbd84-1200.webp" alt="The full triage detail: summary, rough price, recommended action and tenant details" width="2880" height="3200" loading="lazy" decoding="async" class="">
+</picture>
+        <figcaption>Summary, price band, recommended action, contractor — on one card.</figcaption>
+      </figure>
+      <figure class="cs-shot">
+        <picture>
+  <source type="image/avif" srcset="/media/landlord-marketing-532f9cd8-480.avif 480w, /media/landlord-marketing-532f9cd8-768.avif 768w, /media/landlord-marketing-532f9cd8-1200.avif 1200w, /media/landlord-marketing-532f9cd8-1800.avif 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <source type="image/webp" srcset="/media/landlord-marketing-532f9cd8-480.webp 480w, /media/landlord-marketing-532f9cd8-768.webp 768w, /media/landlord-marketing-532f9cd8-1200.webp 1200w, /media/landlord-marketing-532f9cd8-1800.webp 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <img src="/media/landlord-marketing-532f9cd8-1200.webp" alt="MetroNest product site explaining the maintenance workflow" width="2880" height="1800" loading="lazy" decoding="async" class="">
+</picture>
+        <figcaption>The product site it ships behind.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container">
+    <p class="label" data-reveal="fade" style="margin-bottom: var(--s6)">See it working</p>
+    <div class="device device--laptop" data-reveal="fade">
+  <div class="device__chrome"><span></span><span></span><span></span></div>
+  <div class="device__screen"><picture>
+  <source type="image/avif" srcset="/media/landlord-dashboard-85e87e1b-480.avif 480w, /media/landlord-dashboard-85e87e1b-768.avif 768w, /media/landlord-dashboard-85e87e1b-1200.avif 1200w, /media/landlord-dashboard-85e87e1b-1800.avif 1800w" sizes="62rem">
+  <source type="image/webp" srcset="/media/landlord-dashboard-85e87e1b-480.webp 480w, /media/landlord-dashboard-85e87e1b-768.webp 768w, /media/landlord-dashboard-85e87e1b-1200.webp 1200w, /media/landlord-dashboard-85e87e1b-1800.webp 1800w" sizes="62rem">
+  <img src="/media/landlord-dashboard-85e87e1b-1200.webp" alt="Maintenance operations dashboard showing the live request queue and a triaged plumbing job" width="2880" height="1800" loading="lazy" decoding="async" class="">
+</picture></div>
+</div>
+<p class="demo-note">This one runs on private data, so there is no public demo.</p>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What changed</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>The gap between &quot;tenant reports it&quot; and &quot;someone has decided what to do&quot; collapses from days to minutes. The status board turned out to matter as much as the triage: knowing which jobs are waiting on the tenant is the difference between chasing and guessing.</p>
+      <dl class="metrics" data-reveal="stagger">
+  <div class="metric">
+    <dt>Not days</dt>
+    <dd>Minutes</dd>
+  </div>
+  <div class="metric">
+    <dt>Decision to make</dt>
+    <dd>1</dd>
+  </div>
+  <div class="metric">
+    <dt>Under quote limit</dt>
+    <dd>Auto</dd>
+  </div>
+</dl>
+    </div>
+  </div>
+</section>
+
+<a class="cs-next" href="/work/fitness-tracking-app/" data-cursor="view">
+  <div class="container cs-next__inner">
+    <p class="label">Next project</p>
+    <h2>Fitness Tracking App <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h2>
+    <p class="lede">One place to log sessions, follow the week, and see progress — instead of rebuilding the system every Monday.</p>
+  </div>
+</a>
+
+<section class="chapter">
+  <div class="container">
+    <div class="contact-card" data-chapter="dark" data-reveal="fade">
+      <p class="label">The easiest next step</p>
+      <h2 data-reveal="chars" data-split="words">Want something like this <em>for your workflow?</em></h2>
+      <p class="lede" style="margin-inline: auto; margin-top: var(--s5)">
+        Tell me what you are doing by hand right now. That is genuinely enough to start from.
+      </p>
+      <div class="contact-actions">
+        <a class="button button--light" data-build-form data-magnetic="0.2" href="/#build-request">Start a build request <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="button button--ghost" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Email me directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-meta">Sam Jordan / Custom tool builder</span>
+    <div class="footer-links">
+      <a class="nav-link" href="/work/">Work</a>
+      <a class="nav-link" href="mailto:contact@samjordanco.com">Email</a>
+    </div>
+    <span class="footer-meta">&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

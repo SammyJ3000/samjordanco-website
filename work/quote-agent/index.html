@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quote Agent — Sam Jordan</title>
+<meta name="description" content="Gives a caller a real bathroom price in about a minute, priced from a live materials list rather than a guess.">
+<link rel="canonical" href="https://samjordanco.com/work/quote-agent/">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://samjordanco.com/work/quote-agent/">
+<meta property="og:title" content="Quote Agent — Sam Jordan">
+<meta property="og:description" content="Gives a caller a real bathroom price in about a minute, priced from a live materials list rather than a guess.">
+<meta property="og:image" content="https://samjordanco.com/og/quote-agent.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238e4a2e'/%3E%3Ctext x='32' y='44' fill='%23f2eee6' font-family='Helvetica,Arial' font-size='34' font-weight='500' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="module" crossorigin src="/assets/main-CgjVOz8r.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-qTTktP2P.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="nav-wrap">
+  <nav class="nav container" aria-label="Main">
+    <a class="brand" href="/" aria-label="SamJordan, home">Sam<em>Jordan</em><span class="brand-dot" aria-hidden="true"></span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/work/" aria-current="page">Work</a>
+      <a class="nav-link" href="/#process">Process</a>
+      <a class="nav-link" href="/#about">About</a>
+      <a class="nav-link" href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <span class="availability">Taking 1&ndash;2 builds this month</span>
+      <a class="button" data-build-form data-magnetic="0.2" href="/#build-request">Start a build <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </nav>
+</div>
+
+<main id="main">
+<section class="cs-hero" data-chapter="dark">
+  <div class="container">
+    <a class="cs-back" href="/work/"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> All work</a>
+    
+    <div class="cs-hero__meta">
+      <span class="label label--bare">AI tool</span>
+      <span class="label label--bare">Trades</span>
+      <span class="label label--bare">2026</span>
+      <span class="label label--bare">live</span>
+    </div>
+    <h1 data-reveal="chars" data-split="words">Quote Agent</h1>
+    <p class="cs-hero__tagline" data-reveal="fade">Gives a caller a real bathroom price in about a minute, priced from a live materials list rather than a guess.</p>
+    <div class="cs-hero__media" data-reveal="wipe"><picture>
+  <source type="image/avif" srcset="/media/quote-workspace-43c73fbd-480.avif 480w, /media/quote-workspace-43c73fbd-768.avif 768w, /media/quote-workspace-43c73fbd-1200.avif 1200w, /media/quote-workspace-43c73fbd-1800.avif 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <source type="image/webp" srcset="/media/quote-workspace-43c73fbd-480.webp 480w, /media/quote-workspace-43c73fbd-768.webp 768w, /media/quote-workspace-43c73fbd-1200.webp 1200w, /media/quote-workspace-43c73fbd-1800.webp 1800w" sizes="(min-width: 82rem) 78rem, 92vw">
+  <img src="/media/quote-workspace-43c73fbd-1200.webp" alt="Quote Agent workspace: guided call questions on the left, live costed estimate on the right" width="2880" height="2000" loading="eager" decoding="async" class="">
+</picture></div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">The problem</h2>
+    <div class="cs-body" data-reveal="fade"><p>A bathroom fitter takes a call, and the caller wants a number. The honest answer is &quot;I need to come and look at it,&quot; which is true and also the moment a good proportion of those callers ring someone else.</p>
+<p>The alternative most trades fall back on is a number off the top of their head. That is worse: it is either too high and loses the job, or too low and gets held to it eight weeks later when the materials came in dearer than remembered.</p></div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What I built</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>A guided questionnaire that asks the fifteen questions a fitter would ask anyway — room size, strip-out or makeover, spec level, tiling height, floor type — and prices the answers against a real materials list and Northwest England day rates.</p>
+<p>The architectural decision that matters most: the language model only asks the questions. It never sees a price and never does the arithmetic. Costing runs in a deterministic engine against a priced catalogue, so the same answers always produce the same number and every figure can be traced back to a named supplier listing.</p>
+<p>The estimate builds live as the call goes on, broken into labour, materials, plant and contingency, with a &quot;show how this was built&quot; trail behind it. The fitter can read the range out loud with a straight face because they can see exactly where it came from.</p>
+      <div class="skill-list" style="margin-top: var(--s6)"><span class="chip">FastAPI</span>
+<span class="chip">Claude API</span>
+<span class="chip">htmx</span>
+<span class="chip">Deterministic costing engine</span>
+<span class="chip">WeasyPrint</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-gallery cs-gallery--pair" data-reveal="stagger">
+      <figure class="cs-shot">
+        <picture>
+  <source type="image/avif" srcset="/media/quote-workspace-tall-f2fe0c99-480.avif 480w, /media/quote-workspace-tall-f2fe0c99-768.avif 768w, /media/quote-workspace-tall-f2fe0c99-1200.avif 1200w, /media/quote-workspace-tall-f2fe0c99-1800.avif 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <source type="image/webp" srcset="/media/quote-workspace-tall-f2fe0c99-480.webp 480w, /media/quote-workspace-tall-f2fe0c99-768.webp 768w, /media/quote-workspace-tall-f2fe0c99-1200.webp 1200w, /media/quote-workspace-tall-f2fe0c99-1800.webp 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <img src="/media/quote-workspace-tall-f2fe0c99-1200.webp" alt="The full job sheet with every answered field and the running estimate" width="2880" height="3000" loading="lazy" decoding="async" class="">
+</picture>
+        <figcaption>Every answer lands on the job sheet, and the estimate recalculates as it goes.</figcaption>
+      </figure>
+      <figure class="cs-shot">
+        <picture>
+  <source type="image/avif" srcset="/media/quote-workspace-raw-58abc238-480.avif 480w, /media/quote-workspace-raw-58abc238-768.avif 768w, /media/quote-workspace-raw-58abc238-1200.avif 1200w, /media/quote-workspace-raw-58abc238-1800.avif 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <source type="image/webp" srcset="/media/quote-workspace-raw-58abc238-480.webp 480w, /media/quote-workspace-raw-58abc238-768.webp 768w, /media/quote-workspace-raw-58abc238-1200.webp 1200w, /media/quote-workspace-raw-58abc238-1800.webp 1800w" sizes="(min-width: 48rem) 45vw, 92vw">
+  <img src="/media/quote-workspace-raw-58abc238-1200.webp" alt="Quote Agent landing screen showing the typical price range for a bathroom refit" width="2880" height="1800" loading="lazy" decoding="async" class="">
+</picture>
+        <figcaption>The model asks. It never prices.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container">
+    <p class="label" data-reveal="fade" style="margin-bottom: var(--s6)">See it working</p>
+    <div class="device device--laptop" data-reveal="fade">
+  <div class="device__chrome"><span></span><span></span><span></span></div>
+  <div class="device__screen"><picture>
+  <source type="image/avif" srcset="/media/quote-workspace-43c73fbd-480.avif 480w, /media/quote-workspace-43c73fbd-768.avif 768w, /media/quote-workspace-43c73fbd-1200.avif 1200w, /media/quote-workspace-43c73fbd-1800.avif 1800w" sizes="62rem">
+  <source type="image/webp" srcset="/media/quote-workspace-43c73fbd-480.webp 480w, /media/quote-workspace-43c73fbd-768.webp 768w, /media/quote-workspace-43c73fbd-1200.webp 1200w, /media/quote-workspace-43c73fbd-1800.webp 1800w" sizes="62rem">
+  <img src="/media/quote-workspace-43c73fbd-1200.webp" alt="Quote Agent workspace: guided call questions on the left, live costed estimate on the right" width="2880" height="2000" loading="lazy" decoding="async" class="">
+</picture></div>
+</div>
+<p class="demo-note">This one runs on private data, so there is no public demo.</p>
+  </div>
+</section>
+
+<section class="cs-section" style="padding-top: 0">
+  <div class="container cs-grid">
+    <h2 data-reveal="rise">What changed</h2>
+    <div class="cs-body" data-reveal="fade">
+      <p>The caller gets a provisional range before they hang up, and the fitter gets a job sheet already filled in for the site survey. The number is explicitly provisional and subject to survey, which is the honest framing — this replaces the guess, not the visit.</p>
+      <dl class="metrics" data-reveal="stagger">
+  <div class="metric">
+    <dt>To a real number</dt>
+    <dd>~1 min</dd>
+  </div>
+  <div class="metric">
+    <dt>Materials priced</dt>
+    <dd>50</dd>
+  </div>
+  <div class="metric">
+    <dt>LLM does the maths</dt>
+    <dd>£0</dd>
+  </div>
+</dl>
+    </div>
+  </div>
+</section>
+
+<a class="cs-next" href="/work/maintenance-triage-agent/" data-cursor="view">
+  <div class="container cs-next__inner">
+    <p class="label">Next project</p>
+    <h2>Property Maintenance Triage <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></h2>
+    <p class="lede">Tenant reports a leak, the agent triages it, prices it, picks a contractor and puts one decision in front of the landlord.</p>
+  </div>
+</a>
+
+<section class="chapter">
+  <div class="container">
+    <div class="contact-card" data-chapter="dark" data-reveal="fade">
+      <p class="label">The easiest next step</p>
+      <h2 data-reveal="chars" data-split="words">Want something like this <em>for your workflow?</em></h2>
+      <p class="lede" style="margin-inline: auto; margin-top: var(--s5)">
+        Tell me what you are doing by hand right now. That is genuinely enough to start from.
+      </p>
+      <div class="contact-actions">
+        <a class="button button--light" data-build-form data-magnetic="0.2" href="/#build-request">Start a build request <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="button button--ghost" href="mailto:contact@samjordanco.com?subject=New%20project%20enquiry">Email me directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-meta">Sam Jordan / Custom tool builder</span>
+    <div class="footer-links">
+      <a class="nav-link" href="/work/">Work</a>
+      <a class="nav-link" href="mailto:contact@samjordanco.com">Email</a>
+    </div>
+    <span class="footer-meta">&copy; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

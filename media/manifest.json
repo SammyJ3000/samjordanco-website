@@ -1,0 +1,318 @@
+{
+  "fitness-app-home-screen-0c07c9ca": {
+    "base": "fitness-app-home-screen-0c07c9ca",
+    "source": "backup/index.live-20260824.html",
+    "original": "fitness-app-home-screen-0c07c9ca.jpeg",
+    "width": 415,
+    "height": 900,
+    "bytes": 46835,
+    "derivatives": [
+      "fitness-app-home-screen-0c07c9ca-415.avif",
+      "fitness-app-home-screen-0c07c9ca-415.webp"
+    ]
+  },
+  "fitness-app-weekly-training-plan-ddc6d1e4": {
+    "base": "fitness-app-weekly-training-plan-ddc6d1e4",
+    "source": "backup/index.live-20260824.html",
+    "original": "fitness-app-weekly-training-plan-ddc6d1e4.jpeg",
+    "width": 415,
+    "height": 900,
+    "bytes": 77482,
+    "derivatives": [
+      "fitness-app-weekly-training-plan-ddc6d1e4-415.avif",
+      "fitness-app-weekly-training-plan-ddc6d1e4-415.webp"
+    ]
+  },
+  "world-cup-sweepstake-web-app-league-table-3ccdbe1b": {
+    "base": "world-cup-sweepstake-web-app-league-table-3ccdbe1b",
+    "source": "backup/index.live-20260824.html",
+    "original": "world-cup-sweepstake-web-app-league-table-3ccdbe1b.jpeg",
+    "width": 587,
+    "height": 1400,
+    "bytes": 132795,
+    "derivatives": [
+      "world-cup-sweepstake-web-app-league-table-3ccdbe1b-480.avif",
+      "world-cup-sweepstake-web-app-league-table-3ccdbe1b-480.webp",
+      "world-cup-sweepstake-web-app-league-table-3ccdbe1b-587.avif",
+      "world-cup-sweepstake-web-app-league-table-3ccdbe1b-587.webp"
+    ]
+  },
+  "portrait-of-sam-jordan-cca0531a": {
+    "base": "portrait-of-sam-jordan-cca0531a",
+    "source": "backup/index.live-20260824.html",
+    "original": "portrait-of-sam-jordan-cca0531a.jpeg",
+    "width": 900,
+    "height": 900,
+    "bytes": 136276,
+    "derivatives": [
+      "portrait-of-sam-jordan-cca0531a-480.avif",
+      "portrait-of-sam-jordan-cca0531a-480.webp",
+      "portrait-of-sam-jordan-cca0531a-768.avif",
+      "portrait-of-sam-jordan-cca0531a-768.webp",
+      "portrait-of-sam-jordan-cca0531a-900.avif",
+      "portrait-of-sam-jordan-cca0531a-900.webp"
+    ]
+  },
+  "sam-jordan-portrait-7b390583": {
+    "base": "sam-jordan-portrait-7b390583",
+    "source": "Builder.png",
+    "original": "sam-jordan-portrait-7b390583.png",
+    "width": 1248,
+    "height": 1248,
+    "bytes": 1992484,
+    "derivatives": [
+      "sam-jordan-portrait-7b390583-480.avif",
+      "sam-jordan-portrait-7b390583-480.webp",
+      "sam-jordan-portrait-7b390583-768.avif",
+      "sam-jordan-portrait-7b390583-768.webp",
+      "sam-jordan-portrait-7b390583-1200.avif",
+      "sam-jordan-portrait-7b390583-1200.webp",
+      "sam-jordan-portrait-7b390583-1248.avif",
+      "sam-jordan-portrait-7b390583-1248.webp"
+    ]
+  },
+  "fitness-body-c2bbaa03": {
+    "base": "fitness-body-c2bbaa03",
+    "source": "media-src/fitness-body.png",
+    "original": "fitness-body-c2bbaa03.png",
+    "width": 828,
+    "height": 1792,
+    "bytes": 619709,
+    "derivatives": [
+      "fitness-body-c2bbaa03-480.avif",
+      "fitness-body-c2bbaa03-480.webp",
+      "fitness-body-c2bbaa03-768.avif",
+      "fitness-body-c2bbaa03-768.webp",
+      "fitness-body-c2bbaa03-828.avif",
+      "fitness-body-c2bbaa03-828.webp"
+    ]
+  },
+  "fitness-desktop-8ba304c1": {
+    "base": "fitness-desktop-8ba304c1",
+    "source": "media-src/fitness-desktop.png",
+    "original": "fitness-desktop-8ba304c1.png",
+    "width": 2880,
+    "height": 1800,
+    "bytes": 1229230,
+    "derivatives": [
+      "fitness-desktop-8ba304c1-480.avif",
+      "fitness-desktop-8ba304c1-480.webp",
+      "fitness-desktop-8ba304c1-768.avif",
+      "fitness-desktop-8ba304c1-768.webp",
+      "fitness-desktop-8ba304c1-1200.avif",
+      "fitness-desktop-8ba304c1-1200.webp",
+      "fitness-desktop-8ba304c1-1800.avif",
+      "fitness-desktop-8ba304c1-1800.webp"
+    ]
+  },
+  "fitness-home-6032486d": {
+    "base": "fitness-home-6032486d",
+    "source": "media-src/fitness-home.png",
+    "original": "fitness-home-6032486d.png",
+    "width": 828,
+    "height": 1792,
+    "bytes": 671376,
+    "derivatives": [
+      "fitness-home-6032486d-480.avif",
+      "fitness-home-6032486d-480.webp",
+      "fitness-home-6032486d-768.avif",
+      "fitness-home-6032486d-768.webp",
+      "fitness-home-6032486d-828.avif",
+      "fitness-home-6032486d-828.webp"
+    ]
+  },
+  "fitness-progress-81a1384f": {
+    "base": "fitness-progress-81a1384f",
+    "source": "media-src/fitness-progress.png",
+    "original": "fitness-progress-81a1384f.png",
+    "width": 828,
+    "height": 1792,
+    "bytes": 710509,
+    "derivatives": [
+      "fitness-progress-81a1384f-480.avif",
+      "fitness-progress-81a1384f-480.webp",
+      "fitness-progress-81a1384f-768.avif",
+      "fitness-progress-81a1384f-768.webp",
+      "fitness-progress-81a1384f-828.avif",
+      "fitness-progress-81a1384f-828.webp"
+    ]
+  },
+  "fitness-week-e8591084": {
+    "base": "fitness-week-e8591084",
+    "source": "media-src/fitness-week.png",
+    "original": "fitness-week-e8591084.png",
+    "width": 828,
+    "height": 1792,
+    "bytes": 792671,
+    "derivatives": [
+      "fitness-week-e8591084-480.avif",
+      "fitness-week-e8591084-480.webp",
+      "fitness-week-e8591084-768.avif",
+      "fitness-week-e8591084-768.webp",
+      "fitness-week-e8591084-828.avif",
+      "fitness-week-e8591084-828.webp"
+    ]
+  },
+  "instagram-dashboard-tall-cf61baa1": {
+    "base": "instagram-dashboard-tall-cf61baa1",
+    "source": "media-src/instagram-dashboard-tall.png",
+    "original": "instagram-dashboard-tall-cf61baa1.png",
+    "width": 2880,
+    "height": 3400,
+    "bytes": 4208460,
+    "derivatives": [
+      "instagram-dashboard-tall-cf61baa1-480.avif",
+      "instagram-dashboard-tall-cf61baa1-480.webp",
+      "instagram-dashboard-tall-cf61baa1-768.avif",
+      "instagram-dashboard-tall-cf61baa1-768.webp",
+      "instagram-dashboard-tall-cf61baa1-1200.avif",
+      "instagram-dashboard-tall-cf61baa1-1200.webp",
+      "instagram-dashboard-tall-cf61baa1-1800.avif",
+      "instagram-dashboard-tall-cf61baa1-1800.webp"
+    ]
+  },
+  "instagram-dashboard-3ab8bf18": {
+    "base": "instagram-dashboard-3ab8bf18",
+    "source": "media-src/instagram-dashboard.png",
+    "original": "instagram-dashboard-3ab8bf18.png",
+    "width": 2880,
+    "height": 1800,
+    "bytes": 2311034,
+    "derivatives": [
+      "instagram-dashboard-3ab8bf18-480.avif",
+      "instagram-dashboard-3ab8bf18-480.webp",
+      "instagram-dashboard-3ab8bf18-768.avif",
+      "instagram-dashboard-3ab8bf18-768.webp",
+      "instagram-dashboard-3ab8bf18-1200.avif",
+      "instagram-dashboard-3ab8bf18-1200.webp",
+      "instagram-dashboard-3ab8bf18-1800.avif",
+      "instagram-dashboard-3ab8bf18-1800.webp"
+    ]
+  },
+  "landlord-dashboard-tall-2c0cbd84": {
+    "base": "landlord-dashboard-tall-2c0cbd84",
+    "source": "media-src/landlord-dashboard-tall.png",
+    "original": "landlord-dashboard-tall-2c0cbd84.png",
+    "width": 2880,
+    "height": 3200,
+    "bytes": 972909,
+    "derivatives": [
+      "landlord-dashboard-tall-2c0cbd84-480.avif",
+      "landlord-dashboard-tall-2c0cbd84-480.webp",
+      "landlord-dashboard-tall-2c0cbd84-768.avif",
+      "landlord-dashboard-tall-2c0cbd84-768.webp",
+      "landlord-dashboard-tall-2c0cbd84-1200.avif",
+      "landlord-dashboard-tall-2c0cbd84-1200.webp",
+      "landlord-dashboard-tall-2c0cbd84-1800.avif",
+      "landlord-dashboard-tall-2c0cbd84-1800.webp"
+    ]
+  },
+  "landlord-dashboard-85e87e1b": {
+    "base": "landlord-dashboard-85e87e1b",
+    "source": "media-src/landlord-dashboard.png",
+    "original": "landlord-dashboard-85e87e1b.png",
+    "width": 2880,
+    "height": 1800,
+    "bytes": 716382,
+    "derivatives": [
+      "landlord-dashboard-85e87e1b-480.avif",
+      "landlord-dashboard-85e87e1b-480.webp",
+      "landlord-dashboard-85e87e1b-768.avif",
+      "landlord-dashboard-85e87e1b-768.webp",
+      "landlord-dashboard-85e87e1b-1200.avif",
+      "landlord-dashboard-85e87e1b-1200.webp",
+      "landlord-dashboard-85e87e1b-1800.avif",
+      "landlord-dashboard-85e87e1b-1800.webp"
+    ]
+  },
+  "landlord-marketing-532f9cd8": {
+    "base": "landlord-marketing-532f9cd8",
+    "source": "media-src/landlord-marketing.png",
+    "original": "landlord-marketing-532f9cd8.png",
+    "width": 2880,
+    "height": 1800,
+    "bytes": 751171,
+    "derivatives": [
+      "landlord-marketing-532f9cd8-480.avif",
+      "landlord-marketing-532f9cd8-480.webp",
+      "landlord-marketing-532f9cd8-768.avif",
+      "landlord-marketing-532f9cd8-768.webp",
+      "landlord-marketing-532f9cd8-1200.avif",
+      "landlord-marketing-532f9cd8-1200.webp",
+      "landlord-marketing-532f9cd8-1800.avif",
+      "landlord-marketing-532f9cd8-1800.webp"
+    ]
+  },
+  "quote-workspace-raw-58abc238": {
+    "base": "quote-workspace-raw-58abc238",
+    "source": "media-src/quote-workspace-raw.png",
+    "original": "quote-workspace-raw-58abc238.png",
+    "width": 2880,
+    "height": 1800,
+    "bytes": 142613,
+    "derivatives": [
+      "quote-workspace-raw-58abc238-480.avif",
+      "quote-workspace-raw-58abc238-480.webp",
+      "quote-workspace-raw-58abc238-768.avif",
+      "quote-workspace-raw-58abc238-768.webp",
+      "quote-workspace-raw-58abc238-1200.avif",
+      "quote-workspace-raw-58abc238-1200.webp",
+      "quote-workspace-raw-58abc238-1800.avif",
+      "quote-workspace-raw-58abc238-1800.webp"
+    ]
+  },
+  "quote-workspace-tall-f2fe0c99": {
+    "base": "quote-workspace-tall-f2fe0c99",
+    "source": "media-src/quote-workspace-tall.png",
+    "original": "quote-workspace-tall-f2fe0c99.png",
+    "width": 2880,
+    "height": 3000,
+    "bytes": 373265,
+    "derivatives": [
+      "quote-workspace-tall-f2fe0c99-480.avif",
+      "quote-workspace-tall-f2fe0c99-480.webp",
+      "quote-workspace-tall-f2fe0c99-768.avif",
+      "quote-workspace-tall-f2fe0c99-768.webp",
+      "quote-workspace-tall-f2fe0c99-1200.avif",
+      "quote-workspace-tall-f2fe0c99-1200.webp",
+      "quote-workspace-tall-f2fe0c99-1800.avif",
+      "quote-workspace-tall-f2fe0c99-1800.webp"
+    ]
+  },
+  "quote-workspace-43c73fbd": {
+    "base": "quote-workspace-43c73fbd",
+    "source": "media-src/quote-workspace.png",
+    "original": "quote-workspace-43c73fbd.png",
+    "width": 2880,
+    "height": 2000,
+    "bytes": 261200,
+    "derivatives": [
+      "quote-workspace-43c73fbd-480.avif",
+      "quote-workspace-43c73fbd-480.webp",
+      "quote-workspace-43c73fbd-768.avif",
+      "quote-workspace-43c73fbd-768.webp",
+      "quote-workspace-43c73fbd-1200.avif",
+      "quote-workspace-43c73fbd-1200.webp",
+      "quote-workspace-43c73fbd-1800.avif",
+      "quote-workspace-43c73fbd-1800.webp"
+    ]
+  },
+  "upwork-pipeline-still-c9fcfea0": {
+    "base": "upwork-pipeline-still-c9fcfea0",
+    "source": "media-src/upwork-pipeline-still.png",
+    "original": "upwork-pipeline-still-c9fcfea0.png",
+    "width": 2232,
+    "height": 580,
+    "bytes": 74046,
+    "derivatives": [
+      "upwork-pipeline-still-c9fcfea0-480.avif",
+      "upwork-pipeline-still-c9fcfea0-480.webp",
+      "upwork-pipeline-still-c9fcfea0-768.avif",
+      "upwork-pipeline-still-c9fcfea0-768.webp",
+      "upwork-pipeline-still-c9fcfea0-1200.avif",
+      "upwork-pipeline-still-c9fcfea0-1200.webp",
+      "upwork-pipeline-still-c9fcfea0-1800.avif",
+      "upwork-pipeline-still-c9fcfea0-1800.webp"
+    ]
+  }
+}
