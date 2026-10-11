@@ -1,0 +1,9 @@
+{
+  "prompt": "Use case: identity-preserve. Asset type: portrait photograph for Sam Jordan's software developer portfolio. Input image 1 is the edit target. Change ONLY the existing blue-charcoal studio background to a neutral near-black backdrop centered on #121218, with extremely subtle natural studio tonal variation. Preserve the exact person, identity, facial geometry, smile, expression, eyes, hair, beard, earrings, skin texture, freckles, clothing colors and textures, subject lighting, pose, square composition, crop and framing. Do not beautify, smooth skin, alter or desaturate the person. Maintain realistic individual hair edges and natural background separation without halos or edge discoloration. No objects, text, logos, dramatic rim lighting, or other additions. Output a realistic square photographic edit.",
+  "createdAt": "2026-10-10T12:34:33.813Z",
+  "tool": "Built-in image_gen",
+  "source": "sam-jordan.webp — user-supplied final retouched portrait",
+  "intent": "Background-only edit to neutral near-black; original retained.",
+  "processing": "Generated square photograph resized to 900 × 900, WebP quality 90.",
+  "review": "Visually inspected against the source. Identity, smile, framing and clothing remain consistent; background is near-black with natural hair separation. Generative edit, not a pixel-identical preservation of foreground."
+}

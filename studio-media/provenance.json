@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "prepared": "2026-10-10",
+  "note": "User-supplied approved portfolio material and pre-existing website imagery. Original compositions and client-approved redactions preserved. Website derivatives only.",
+  "assets": [
+    {
+      "filename": "mfio-product.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 92106,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 04: product screens. Original composition and approved redactions preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "mfio-system.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 80744,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 02: design system. Original composition preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "mfio-brand.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 71662,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 05: brand kit. Original composition preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "mfio-journey.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 100430,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 06: debt journey. Original composition and approved redactions preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "mfio-before-after.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 64172,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 01: welcome screen comparison. Original composition preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "mfio-pairs.webp",
+      "width": 1800,
+      "height": 1350,
+      "bytes": 105430,
+      "origin": "User-supplied, client-approved Money From The Inside Out portfolio plate 03b: two screen pairs. Original composition preserved.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "sam-jordan.webp",
+      "width": 900,
+      "height": 900,
+      "bytes": 67640,
+      "origin": "User-supplied Sam Jordan portrait: existing final retouched LinkedIn photograph, selected 9 October 2026. Existing retouch preserved; only resized and converted.",
+      "processing": "Resize preserving aspect ratio; WebP quality 88. No crop, retouch or recolour."
+    },
+    {
+      "filename": "quote-agent.webp",
+      "width": 1200,
+      "height": 833,
+      "bytes": 31394,
+      "origin": "Pre-existing Sam Jordan portfolio image: Quote Agent workspace, existing 1200-pixel website derivative copied unchanged.",
+      "processing": "Exact copy of existing 1200-pixel WebP; binary SHA-256 verified unchanged."
+    },
+    {
+      "filename": "maintenance.webp",
+      "width": 1200,
+      "height": 750,
+      "bytes": 40814,
+      "origin": "Pre-existing Sam Jordan portfolio image: MetroNest maintenance dashboard, existing 1200-pixel website derivative copied unchanged.",
+      "processing": "Exact copy of existing 1200-pixel WebP; binary SHA-256 verified unchanged."
+    }
+  ]
+}
